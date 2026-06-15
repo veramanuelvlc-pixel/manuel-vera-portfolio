@@ -32,6 +32,10 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
+
+# raw pandas-generated datasets (regenerable via scripts/; keep only the aggregated JSONs)
+public/data/*_raw.csv
 
 # vercel
 .vercel

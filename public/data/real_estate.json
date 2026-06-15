@@ -1,0 +1,1511 @@
+{
+  "totals": {
+    "listings": 2200,
+    "avg_price": 93.53,
+    "avg_occupancy": 71.9,
+    "est_monthly_revenue": 4473716.0,
+    "avg_rating": 4.58,
+    "superhost_rate": 14.0,
+    "neighborhoods": 8
+  },
+  "by_neighborhood": [
+    {
+      "neighborhood": "Salamanca",
+      "listings": 283,
+      "avg_price": 121.0,
+      "occupancy": 68.1,
+      "est_revenue": 703872.0,
+      "avg_rating": 4.59
+    },
+    {
+      "neighborhood": "Centro",
+      "listings": 283,
+      "avg_price": 104.0,
+      "occupancy": 75.0,
+      "est_revenue": 665082.0,
+      "avg_rating": 4.57
+    },
+    {
+      "neighborhood": "Malasa\u00f1a",
+      "listings": 308,
+      "avg_price": 88.0,
+      "occupancy": 78.5,
+      "est_revenue": 647334.0,
+      "avg_rating": 4.6
+    },
+    {
+      "neighborhood": "Chamber\u00ed",
+      "listings": 284,
+      "avg_price": 94.0,
+      "occupancy": 71.5,
+      "est_revenue": 579968.0,
+      "avg_rating": 4.58
+    },
+    {
+      "neighborhood": "Chueca",
+      "listings": 247,
+      "avg_price": 92.0,
+      "occupancy": 75.6,
+      "est_revenue": 517652.0,
+      "avg_rating": 4.59
+    },
+    {
+      "neighborhood": "Retiro",
+      "listings": 261,
+      "avg_price": 100.0,
+      "occupancy": 64.2,
+      "est_revenue": 504655.0,
+      "avg_rating": 4.6
+    },
+    {
+      "neighborhood": "La Latina",
+      "listings": 259,
+      "avg_price": 81.0,
+      "occupancy": 72.9,
+      "est_revenue": 467230.0,
+      "avg_rating": 4.58
+    },
+    {
+      "neighborhood": "Lavapi\u00e9s",
+      "listings": 275,
+      "avg_price": 68.0,
+      "occupancy": 69.0,
+      "est_revenue": 387923.0,
+      "avg_rating": 4.57
+    }
+  ],
+  "by_room_type": [
+    {
+      "room_type": "Entire home/apt",
+      "listings": 1373,
+      "avg_price": 115.0,
+      "occupancy": 73.7
+    },
+    {
+      "room_type": "Private room",
+      "listings": 697,
+      "avg_price": 63.0,
+      "occupancy": 69.7
+    },
+    {
+      "room_type": "Shared room",
+      "listings": 130,
+      "avg_price": 34.0,
+      "occupancy": 65.1
+    }
+  ],
+  "scatter": [
+    {
+      "price": 36.0,
+      "occupancy": 61.0,
+      "neighborhood": "Salamanca",
+      "room_type": "Shared room"
+    },
+    {
+      "price": 55.0,
+      "occupancy": 71.0,
+      "neighborhood": "La Latina",
+      "room_type": "Private room"
+    },
+    {
+      "price": 127.0,
+      "occupancy": 80.8,
+      "neighborhood": "La Latina",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 69.0,
+      "occupancy": 60.5,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 107.0,
+      "occupancy": 67.4,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 42.0,
+      "occupancy": 68.7,
+      "neighborhood": "La Latina",
+      "room_type": "Private room"
+    },
+    {
+      "price": 108.0,
+      "occupancy": 80.2,
+      "neighborhood": "Chueca",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 93.0,
+      "occupancy": 71.0,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 70.0,
+      "occupancy": 65.0,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 146.0,
+      "occupancy": 77.4,
+      "neighborhood": "Salamanca",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 125.0,
+      "occupancy": 64.6,
+      "neighborhood": "Retiro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 147.0,
+      "occupancy": 68.9,
+      "neighborhood": "Centro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 109.0,
+      "occupancy": 57.6,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 140.0,
+      "occupancy": 66.7,
+      "neighborhood": "Retiro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 49.0,
+      "occupancy": 61.1,
+      "neighborhood": "Chamber\u00ed",
+      "room_type": "Private room"
+    },
+    {
+      "price": 149.0,
+      "occupancy": 70.7,
+      "neighborhood": "Retiro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 55.0,
+      "occupancy": 73.3,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Private room"
+    },
+    {
+      "price": 61.0,
+      "occupancy": 68.2,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Private room"
+    },
+    {
+      "price": 128.0,
+      "occupancy": 78.3,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 45.0,
+      "occupancy": 68.7,
+      "neighborhood": "Chamber\u00ed",
+      "room_type": "Private room"
+    },
+    {
+      "price": 29.0,
+      "occupancy": 63.1,
+      "neighborhood": "Chamber\u00ed",
+      "room_type": "Shared room"
+    },
+    {
+      "price": 92.0,
+      "occupancy": 73.8,
+      "neighborhood": "Chamber\u00ed",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 29.0,
+      "occupancy": 66.4,
+      "neighborhood": "Chueca",
+      "room_type": "Shared room"
+    },
+    {
+      "price": 24.0,
+      "occupancy": 53.0,
+      "neighborhood": "Retiro",
+      "room_type": "Shared room"
+    },
+    {
+      "price": 90.0,
+      "occupancy": 79.5,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 61.0,
+      "occupancy": 66.1,
+      "neighborhood": "Retiro",
+      "room_type": "Private room"
+    },
+    {
+      "price": 108.0,
+      "occupancy": 83.3,
+      "neighborhood": "Chueca",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 34.0,
+      "occupancy": 64.4,
+      "neighborhood": "La Latina",
+      "room_type": "Shared room"
+    },
+    {
+      "price": 62.0,
+      "occupancy": 76.7,
+      "neighborhood": "Chamber\u00ed",
+      "room_type": "Private room"
+    },
+    {
+      "price": 76.0,
+      "occupancy": 89.1,
+      "neighborhood": "Chueca",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 70.0,
+      "occupancy": 73.0,
+      "neighborhood": "La Latina",
+      "room_type": "Private room"
+    },
+    {
+      "price": 53.0,
+      "occupancy": 53.3,
+      "neighborhood": "Salamanca",
+      "room_type": "Private room"
+    },
+    {
+      "price": 113.0,
+      "occupancy": 71.8,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 99.0,
+      "occupancy": 81.9,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 41.0,
+      "occupancy": 69.2,
+      "neighborhood": "La Latina",
+      "room_type": "Private room"
+    },
+    {
+      "price": 58.0,
+      "occupancy": 85.2,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Private room"
+    },
+    {
+      "price": 99.0,
+      "occupancy": 64.6,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 72.0,
+      "occupancy": 62.5,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Private room"
+    },
+    {
+      "price": 77.0,
+      "occupancy": 77.0,
+      "neighborhood": "La Latina",
+      "room_type": "Private room"
+    },
+    {
+      "price": 148.0,
+      "occupancy": 71.5,
+      "neighborhood": "Salamanca",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 57.0,
+      "occupancy": 56.0,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Private room"
+    },
+    {
+      "price": 84.0,
+      "occupancy": 58.5,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 96.0,
+      "occupancy": 71.4,
+      "neighborhood": "Salamanca",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 75.0,
+      "occupancy": 76.3,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 79.0,
+      "occupancy": 53.6,
+      "neighborhood": "Retiro",
+      "room_type": "Private room"
+    },
+    {
+      "price": 88.0,
+      "occupancy": 68.5,
+      "neighborhood": "Chamber\u00ed",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 81.0,
+      "occupancy": 60.7,
+      "neighborhood": "Chamber\u00ed",
+      "room_type": "Private room"
+    },
+    {
+      "price": 102.0,
+      "occupancy": 54.4,
+      "neighborhood": "Salamanca",
+      "room_type": "Private room"
+    },
+    {
+      "price": 93.0,
+      "occupancy": 58.6,
+      "neighborhood": "Centro",
+      "room_type": "Private room"
+    },
+    {
+      "price": 118.0,
+      "occupancy": 73.2,
+      "neighborhood": "Retiro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 60.0,
+      "occupancy": 74.7,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 97.0,
+      "occupancy": 78.0,
+      "neighborhood": "Centro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 124.0,
+      "occupancy": 76.8,
+      "neighborhood": "Retiro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 73.0,
+      "occupancy": 75.5,
+      "neighborhood": "La Latina",
+      "room_type": "Private room"
+    },
+    {
+      "price": 146.0,
+      "occupancy": 87.8,
+      "neighborhood": "Centro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 27.0,
+      "occupancy": 53.2,
+      "neighborhood": "Retiro",
+      "room_type": "Shared room"
+    },
+    {
+      "price": 65.0,
+      "occupancy": 66.4,
+      "neighborhood": "Centro",
+      "room_type": "Private room"
+    },
+    {
+      "price": 63.0,
+      "occupancy": 65.7,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Private room"
+    },
+    {
+      "price": 165.0,
+      "occupancy": 91.0,
+      "neighborhood": "Centro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 103.0,
+      "occupancy": 85.2,
+      "neighborhood": "Chueca",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 27.0,
+      "occupancy": 68.9,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Shared room"
+    },
+    {
+      "price": 54.0,
+      "occupancy": 56.8,
+      "neighborhood": "Retiro",
+      "room_type": "Private room"
+    },
+    {
+      "price": 114.0,
+      "occupancy": 85.3,
+      "neighborhood": "La Latina",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 142.0,
+      "occupancy": 88.4,
+      "neighborhood": "Centro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 74.0,
+      "occupancy": 85.3,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Private room"
+    },
+    {
+      "price": 87.0,
+      "occupancy": 52.9,
+      "neighborhood": "Retiro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 48.0,
+      "occupancy": 79.5,
+      "neighborhood": "Chamber\u00ed",
+      "room_type": "Private room"
+    },
+    {
+      "price": 140.0,
+      "occupancy": 78.5,
+      "neighborhood": "La Latina",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 89.0,
+      "occupancy": 52.6,
+      "neighborhood": "Retiro",
+      "room_type": "Private room"
+    },
+    {
+      "price": 103.0,
+      "occupancy": 60.4,
+      "neighborhood": "Salamanca",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 60.0,
+      "occupancy": 56.4,
+      "neighborhood": "Chamber\u00ed",
+      "room_type": "Private room"
+    },
+    {
+      "price": 155.0,
+      "occupancy": 84.9,
+      "neighborhood": "Centro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 104.0,
+      "occupancy": 74.6,
+      "neighborhood": "Salamanca",
+      "room_type": "Private room"
+    },
+    {
+      "price": 95.0,
+      "occupancy": 59.7,
+      "neighborhood": "Retiro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 126.0,
+      "occupancy": 75.8,
+      "neighborhood": "Chamber\u00ed",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 96.0,
+      "occupancy": 53.5,
+      "neighborhood": "Retiro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 40.0,
+      "occupancy": 73.1,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Private room"
+    },
+    {
+      "price": 44.0,
+      "occupancy": 51.9,
+      "neighborhood": "Retiro",
+      "room_type": "Private room"
+    },
+    {
+      "price": 189.0,
+      "occupancy": 70.8,
+      "neighborhood": "Salamanca",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 74.0,
+      "occupancy": 76.2,
+      "neighborhood": "La Latina",
+      "room_type": "Private room"
+    },
+    {
+      "price": 123.0,
+      "occupancy": 67.3,
+      "neighborhood": "Chueca",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 110.0,
+      "occupancy": 61.5,
+      "neighborhood": "Centro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 44.0,
+      "occupancy": 80.0,
+      "neighborhood": "Chamber\u00ed",
+      "room_type": "Private room"
+    },
+    {
+      "price": 130.0,
+      "occupancy": 62.8,
+      "neighborhood": "Chamber\u00ed",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 115.0,
+      "occupancy": 84.4,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 182.0,
+      "occupancy": 58.9,
+      "neighborhood": "Salamanca",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 82.0,
+      "occupancy": 84.2,
+      "neighborhood": "Centro",
+      "room_type": "Private room"
+    },
+    {
+      "price": 95.0,
+      "occupancy": 76.5,
+      "neighborhood": "La Latina",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 138.0,
+      "occupancy": 75.8,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 43.0,
+      "occupancy": 74.2,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Private room"
+    },
+    {
+      "price": 71.0,
+      "occupancy": 84.1,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 46.0,
+      "occupancy": 75.8,
+      "neighborhood": "Chamber\u00ed",
+      "room_type": "Private room"
+    },
+    {
+      "price": 139.0,
+      "occupancy": 83.7,
+      "neighborhood": "Centro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 30.0,
+      "occupancy": 71.5,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Private room"
+    },
+    {
+      "price": 92.0,
+      "occupancy": 68.0,
+      "neighborhood": "La Latina",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 61.0,
+      "occupancy": 59.7,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Private room"
+    },
+    {
+      "price": 130.0,
+      "occupancy": 56.1,
+      "neighborhood": "Salamanca",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 40.0,
+      "occupancy": 62.0,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Private room"
+    },
+    {
+      "price": 114.0,
+      "occupancy": 72.7,
+      "neighborhood": "Centro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 101.0,
+      "occupancy": 75.0,
+      "neighborhood": "Centro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 63.0,
+      "occupancy": 64.2,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Private room"
+    },
+    {
+      "price": 63.0,
+      "occupancy": 70.7,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 120.0,
+      "occupancy": 79.3,
+      "neighborhood": "Chamber\u00ed",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 77.0,
+      "occupancy": 70.0,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Private room"
+    },
+    {
+      "price": 130.0,
+      "occupancy": 72.7,
+      "neighborhood": "Salamanca",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 82.0,
+      "occupancy": 67.3,
+      "neighborhood": "Salamanca",
+      "room_type": "Private room"
+    },
+    {
+      "price": 50.0,
+      "occupancy": 80.5,
+      "neighborhood": "Chueca",
+      "room_type": "Private room"
+    },
+    {
+      "price": 95.0,
+      "occupancy": 65.2,
+      "neighborhood": "Centro",
+      "room_type": "Private room"
+    },
+    {
+      "price": 31.0,
+      "occupancy": 54.7,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Private room"
+    },
+    {
+      "price": 140.0,
+      "occupancy": 66.5,
+      "neighborhood": "Chamber\u00ed",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 45.0,
+      "occupancy": 64.7,
+      "neighborhood": "La Latina",
+      "room_type": "Private room"
+    },
+    {
+      "price": 29.0,
+      "occupancy": 66.9,
+      "neighborhood": "Chueca",
+      "room_type": "Shared room"
+    },
+    {
+      "price": 127.0,
+      "occupancy": 69.0,
+      "neighborhood": "Retiro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 93.0,
+      "occupancy": 62.7,
+      "neighborhood": "Centro",
+      "room_type": "Private room"
+    },
+    {
+      "price": 68.0,
+      "occupancy": 59.7,
+      "neighborhood": "Chueca",
+      "room_type": "Private room"
+    },
+    {
+      "price": 77.0,
+      "occupancy": 83.1,
+      "neighborhood": "Chamber\u00ed",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 128.0,
+      "occupancy": 85.0,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 130.0,
+      "occupancy": 76.8,
+      "neighborhood": "Retiro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 34.0,
+      "occupancy": 63.7,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Shared room"
+    },
+    {
+      "price": 72.0,
+      "occupancy": 76.2,
+      "neighborhood": "Chamber\u00ed",
+      "room_type": "Private room"
+    },
+    {
+      "price": 112.0,
+      "occupancy": 75.2,
+      "neighborhood": "La Latina",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 33.0,
+      "occupancy": 67.6,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Private room"
+    },
+    {
+      "price": 70.0,
+      "occupancy": 56.7,
+      "neighborhood": "Retiro",
+      "room_type": "Private room"
+    },
+    {
+      "price": 118.0,
+      "occupancy": 86.1,
+      "neighborhood": "Chueca",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 53.0,
+      "occupancy": 58.7,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Private room"
+    },
+    {
+      "price": 59.0,
+      "occupancy": 61.8,
+      "neighborhood": "Retiro",
+      "room_type": "Private room"
+    },
+    {
+      "price": 73.0,
+      "occupancy": 67.2,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 121.0,
+      "occupancy": 65.9,
+      "neighborhood": "Retiro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 74.0,
+      "occupancy": 67.1,
+      "neighborhood": "Chamber\u00ed",
+      "room_type": "Private room"
+    },
+    {
+      "price": 49.0,
+      "occupancy": 64.1,
+      "neighborhood": "Chueca",
+      "room_type": "Private room"
+    },
+    {
+      "price": 48.0,
+      "occupancy": 61.7,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Private room"
+    },
+    {
+      "price": 84.0,
+      "occupancy": 71.6,
+      "neighborhood": "Chueca",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 134.0,
+      "occupancy": 64.2,
+      "neighborhood": "Chueca",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 75.0,
+      "occupancy": 61.3,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Private room"
+    },
+    {
+      "price": 69.0,
+      "occupancy": 70.3,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 54.0,
+      "occupancy": 68.6,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 79.0,
+      "occupancy": 60.8,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 133.0,
+      "occupancy": 76.4,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 91.0,
+      "occupancy": 64.6,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 134.0,
+      "occupancy": 57.8,
+      "neighborhood": "Retiro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 50.0,
+      "occupancy": 77.2,
+      "neighborhood": "Centro",
+      "room_type": "Private room"
+    },
+    {
+      "price": 101.0,
+      "occupancy": 85.5,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 157.0,
+      "occupancy": 74.2,
+      "neighborhood": "Centro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 40.0,
+      "occupancy": 64.3,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Private room"
+    },
+    {
+      "price": 127.0,
+      "occupancy": 72.1,
+      "neighborhood": "Retiro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 48.0,
+      "occupancy": 67.6,
+      "neighborhood": "Centro",
+      "room_type": "Shared room"
+    },
+    {
+      "price": 68.0,
+      "occupancy": 78.2,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 46.0,
+      "occupancy": 63.6,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Private room"
+    },
+    {
+      "price": 50.0,
+      "occupancy": 62.4,
+      "neighborhood": "Retiro",
+      "room_type": "Private room"
+    },
+    {
+      "price": 151.0,
+      "occupancy": 70.1,
+      "neighborhood": "Chueca",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 102.0,
+      "occupancy": 66.6,
+      "neighborhood": "Salamanca",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 91.0,
+      "occupancy": 82.4,
+      "neighborhood": "La Latina",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 159.0,
+      "occupancy": 60.4,
+      "neighborhood": "Retiro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 38.0,
+      "occupancy": 60.3,
+      "neighborhood": "Retiro",
+      "room_type": "Shared room"
+    },
+    {
+      "price": 113.0,
+      "occupancy": 71.5,
+      "neighborhood": "Chueca",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 149.0,
+      "occupancy": 69.3,
+      "neighborhood": "Chamber\u00ed",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 156.0,
+      "occupancy": 77.4,
+      "neighborhood": "Salamanca",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 150.0,
+      "occupancy": 72.9,
+      "neighborhood": "Chueca",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 101.0,
+      "occupancy": 88.0,
+      "neighborhood": "La Latina",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 94.0,
+      "occupancy": 56.2,
+      "neighborhood": "Retiro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 44.0,
+      "occupancy": 65.1,
+      "neighborhood": "Chueca",
+      "room_type": "Shared room"
+    },
+    {
+      "price": 68.0,
+      "occupancy": 64.3,
+      "neighborhood": "Chueca",
+      "room_type": "Private room"
+    },
+    {
+      "price": 73.0,
+      "occupancy": 71.5,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 162.0,
+      "occupancy": 73.4,
+      "neighborhood": "Centro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 75.0,
+      "occupancy": 70.8,
+      "neighborhood": "Salamanca",
+      "room_type": "Private room"
+    },
+    {
+      "price": 41.0,
+      "occupancy": 80.3,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Private room"
+    },
+    {
+      "price": 69.0,
+      "occupancy": 88.2,
+      "neighborhood": "Chueca",
+      "room_type": "Private room"
+    },
+    {
+      "price": 127.0,
+      "occupancy": 61.6,
+      "neighborhood": "Salamanca",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 135.0,
+      "occupancy": 64.5,
+      "neighborhood": "La Latina",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 153.0,
+      "occupancy": 63.8,
+      "neighborhood": "Retiro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 138.0,
+      "occupancy": 66.4,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 138.0,
+      "occupancy": 56.1,
+      "neighborhood": "Salamanca",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 113.0,
+      "occupancy": 94.3,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 105.0,
+      "occupancy": 72.9,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 182.0,
+      "occupancy": 77.0,
+      "neighborhood": "Salamanca",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 81.0,
+      "occupancy": 72.8,
+      "neighborhood": "Chueca",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 108.0,
+      "occupancy": 61.1,
+      "neighborhood": "La Latina",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 97.0,
+      "occupancy": 78.8,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 63.0,
+      "occupancy": 64.0,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Private room"
+    },
+    {
+      "price": 102.0,
+      "occupancy": 59.9,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 152.0,
+      "occupancy": 76.2,
+      "neighborhood": "Centro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 40.0,
+      "occupancy": 81.1,
+      "neighborhood": "Chueca",
+      "room_type": "Private room"
+    },
+    {
+      "price": 58.0,
+      "occupancy": 76.1,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Private room"
+    },
+    {
+      "price": 152.0,
+      "occupancy": 55.8,
+      "neighborhood": "Salamanca",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 104.0,
+      "occupancy": 67.4,
+      "neighborhood": "Salamanca",
+      "room_type": "Private room"
+    },
+    {
+      "price": 165.0,
+      "occupancy": 56.6,
+      "neighborhood": "Retiro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 67.0,
+      "occupancy": 75.8,
+      "neighborhood": "La Latina",
+      "room_type": "Private room"
+    },
+    {
+      "price": 145.0,
+      "occupancy": 79.1,
+      "neighborhood": "Salamanca",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 98.0,
+      "occupancy": 89.4,
+      "neighborhood": "Chueca",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 114.0,
+      "occupancy": 73.9,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 87.0,
+      "occupancy": 91.9,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 163.0,
+      "occupancy": 67.9,
+      "neighborhood": "Retiro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 92.0,
+      "occupancy": 65.9,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 64.0,
+      "occupancy": 70.9,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Private room"
+    },
+    {
+      "price": 158.0,
+      "occupancy": 54.4,
+      "neighborhood": "Retiro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 74.0,
+      "occupancy": 65.6,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 158.0,
+      "occupancy": 59.5,
+      "neighborhood": "Salamanca",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 32.0,
+      "occupancy": 66.7,
+      "neighborhood": "Centro",
+      "room_type": "Shared room"
+    },
+    {
+      "price": 42.0,
+      "occupancy": 70.8,
+      "neighborhood": "Chueca",
+      "room_type": "Private room"
+    },
+    {
+      "price": 101.0,
+      "occupancy": 70.6,
+      "neighborhood": "Chueca",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 96.0,
+      "occupancy": 68.1,
+      "neighborhood": "Salamanca",
+      "room_type": "Private room"
+    },
+    {
+      "price": 81.0,
+      "occupancy": 69.6,
+      "neighborhood": "Centro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 77.0,
+      "occupancy": 71.9,
+      "neighborhood": "Chamber\u00ed",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 129.0,
+      "occupancy": 80.1,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 28.0,
+      "occupancy": 64.9,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Shared room"
+    },
+    {
+      "price": 112.0,
+      "occupancy": 57.0,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 69.0,
+      "occupancy": 64.1,
+      "neighborhood": "Centro",
+      "room_type": "Private room"
+    },
+    {
+      "price": 175.0,
+      "occupancy": 57.4,
+      "neighborhood": "Salamanca",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 81.0,
+      "occupancy": 68.9,
+      "neighborhood": "Chueca",
+      "room_type": "Private room"
+    },
+    {
+      "price": 143.0,
+      "occupancy": 68.1,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 37.0,
+      "occupancy": 64.8,
+      "neighborhood": "La Latina",
+      "room_type": "Private room"
+    },
+    {
+      "price": 113.0,
+      "occupancy": 72.4,
+      "neighborhood": "Lavapi\u00e9s",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 48.0,
+      "occupancy": 61.5,
+      "neighborhood": "Retiro",
+      "room_type": "Private room"
+    },
+    {
+      "price": 26.0,
+      "occupancy": 70.1,
+      "neighborhood": "La Latina",
+      "room_type": "Shared room"
+    },
+    {
+      "price": 148.0,
+      "occupancy": 76.0,
+      "neighborhood": "Chamber\u00ed",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 41.0,
+      "occupancy": 60.1,
+      "neighborhood": "La Latina",
+      "room_type": "Private room"
+    },
+    {
+      "price": 69.0,
+      "occupancy": 79.4,
+      "neighborhood": "Malasa\u00f1a",
+      "room_type": "Private room"
+    },
+    {
+      "price": 97.0,
+      "occupancy": 78.6,
+      "neighborhood": "Centro",
+      "room_type": "Entire home/apt"
+    },
+    {
+      "price": 54.0,
+      "occupancy": 60.5,
+      "neighborhood": "Centro",
+      "room_type": "Private room"
+    },
+    {
+      "price": 133.0,
+      "occupancy": 75.3,
+      "neighborhood": "Chueca",
+      "room_type": "Entire home/apt"
+    }
+  ],
+  "top_listings": [
+    {
+      "name": "Entire home en Salamanca",
+      "neighborhood": "Salamanca",
+      "room_type": "Entire home/apt",
+      "price": 197.0,
+      "occupancy": 79.0,
+      "est_revenue": 4728.0,
+      "rating": 4.36
+    },
+    {
+      "name": "Entire home en Centro",
+      "neighborhood": "Centro",
+      "room_type": "Entire home/apt",
+      "price": 172.0,
+      "occupancy": 89.4,
+      "est_revenue": 4644.0,
+      "rating": 4.31
+    },
+    {
+      "name": "Entire home en Salamanca",
+      "neighborhood": "Salamanca",
+      "room_type": "Entire home/apt",
+      "price": 193.0,
+      "occupancy": 79.4,
+      "est_revenue": 4632.0,
+      "rating": 4.44
+    },
+    {
+      "name": "Entire home en Salamanca",
+      "neighborhood": "Salamanca",
+      "room_type": "Entire home/apt",
+      "price": 191.0,
+      "occupancy": 80.7,
+      "est_revenue": 4584.0,
+      "rating": 4.53
+    },
+    {
+      "name": "Entire home en Centro",
+      "neighborhood": "Centro",
+      "room_type": "Entire home/apt",
+      "price": 169.0,
+      "occupancy": 90.7,
+      "est_revenue": 4563.0,
+      "rating": 4.49
+    },
+    {
+      "name": "Entire home en Salamanca",
+      "neighborhood": "Salamanca",
+      "room_type": "Entire home/apt",
+      "price": 190.0,
+      "occupancy": 79.1,
+      "est_revenue": 4560.0,
+      "rating": 4.69
+    },
+    {
+      "name": "Entire home en Salamanca",
+      "neighborhood": "Salamanca",
+      "room_type": "Entire home/apt",
+      "price": 197.0,
+      "occupancy": 77.5,
+      "est_revenue": 4531.0,
+      "rating": 4.83
+    },
+    {
+      "name": "Entire home en Salamanca",
+      "neighborhood": "Salamanca",
+      "room_type": "Entire home/apt",
+      "price": 188.0,
+      "occupancy": 79.6,
+      "est_revenue": 4512.0,
+      "rating": 4.14
+    },
+    {
+      "name": "Entire home en Salamanca",
+      "neighborhood": "Salamanca",
+      "room_type": "Entire home/apt",
+      "price": 194.0,
+      "occupancy": 78.2,
+      "est_revenue": 4462.0,
+      "rating": 3.96
+    },
+    {
+      "name": "Entire home en Centro",
+      "neighborhood": "Centro",
+      "room_type": "Entire home/apt",
+      "price": 165.0,
+      "occupancy": 91.0,
+      "est_revenue": 4455.0,
+      "rating": 4.73
+    }
+  ]
+}

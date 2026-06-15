@@ -1,0 +1,269 @@
+{
+  "totals": {
+    "sent": 966818,
+    "delivered": 942936,
+    "open_rate": 38.07,
+    "click_rate": 6.28,
+    "revenue": 597322.3,
+    "orders": 4921,
+    "conv_rate": 8.31,
+    "unsub_rate": 0.247,
+    "rpe": 0.633,
+    "date_range": {
+      "start": "2024-01-01",
+      "end": "2024-03-24"
+    }
+  },
+  "by_week": [
+    {
+      "week": "W01",
+      "sent": 110649,
+      "open_rate": 29.6,
+      "click_rate": 4.64,
+      "revenue": 17048.37,
+      "orders": 179
+    },
+    {
+      "week": "W02",
+      "sent": 76161,
+      "open_rate": 46.75,
+      "click_rate": 11.16,
+      "revenue": 208774.66,
+      "orders": 1232
+    },
+    {
+      "week": "W03",
+      "sent": 91531,
+      "open_rate": 32.64,
+      "click_rate": 4.63,
+      "revenue": 18023.98,
+      "orders": 227
+    },
+    {
+      "week": "W04",
+      "sent": 45323,
+      "open_rate": 27.86,
+      "click_rate": 5.95,
+      "revenue": 17828.15,
+      "orders": 184
+    },
+    {
+      "week": "W05",
+      "sent": 54653,
+      "open_rate": 42.87,
+      "click_rate": 6.13,
+      "revenue": 37619.1,
+      "orders": 249
+    },
+    {
+      "week": "W06",
+      "sent": 124407,
+      "open_rate": 35.87,
+      "click_rate": 6.93,
+      "revenue": 88311.66,
+      "orders": 847
+    },
+    {
+      "week": "W07",
+      "sent": 70649,
+      "open_rate": 36.41,
+      "click_rate": 4.57,
+      "revenue": 11943.3,
+      "orders": 129
+    },
+    {
+      "week": "W08",
+      "sent": 86938,
+      "open_rate": 43.9,
+      "click_rate": 9.45,
+      "revenue": 36632.43,
+      "orders": 508
+    },
+    {
+      "week": "W09",
+      "sent": 50412,
+      "open_rate": 37.57,
+      "click_rate": 6.48,
+      "revenue": 23168.6,
+      "orders": 278
+    },
+    {
+      "week": "W10",
+      "sent": 81771,
+      "open_rate": 51.01,
+      "click_rate": 6.73,
+      "revenue": 46355.67,
+      "orders": 398
+    },
+    {
+      "week": "W11",
+      "sent": 64183,
+      "open_rate": 47.74,
+      "click_rate": 5.57,
+      "revenue": 68799.63,
+      "orders": 397
+    },
+    {
+      "week": "W12",
+      "sent": 110141,
+      "open_rate": 30.9,
+      "click_rate": 3.98,
+      "revenue": 22816.75,
+      "orders": 293
+    }
+  ],
+  "top_campaigns": [
+    {
+      "campaign_name": "\u00bfOlvidaste algo? 3",
+      "type": "Abandoned Cart",
+      "sent": 52928,
+      "open_rate": 51.62,
+      "click_rate": 14.83,
+      "revenue": 205944.62
+    },
+    {
+      "campaign_name": "\u00bfOlvidaste algo? 15",
+      "type": "Abandoned Cart",
+      "sent": 36020,
+      "open_rate": 50.69,
+      "click_rate": 15.22,
+      "revenue": 79452.86
+    },
+    {
+      "campaign_name": "Tu carrito te espera 27",
+      "type": "Abandoned Cart",
+      "sent": 22470,
+      "open_rate": 52.89,
+      "click_rate": 11.15,
+      "revenue": 62008.53
+    },
+    {
+      "campaign_name": "Hola, soy parte de 11",
+      "type": "Welcome",
+      "sent": 30787,
+      "open_rate": 55.41,
+      "click_rate": 8.68,
+      "revenue": 35472.86
+    },
+    {
+      "campaign_name": "Bienvenida 20",
+      "type": "Welcome",
+      "sent": 43021,
+      "open_rate": 63.53,
+      "click_rate": 15.03,
+      "revenue": 33130.64
+    },
+    {
+      "campaign_name": "Bienvenida 24",
+      "type": "Welcome",
+      "sent": 25161,
+      "open_rate": 63.17,
+      "click_rate": 9.99,
+      "revenue": 30611.6
+    },
+    {
+      "campaign_name": "Hola, soy parte de 22",
+      "type": "Welcome",
+      "sent": 11019,
+      "open_rate": 54.54,
+      "click_rate": 11.34,
+      "revenue": 14614.37
+    },
+    {
+      "campaign_name": "Flash Sale 29",
+      "type": "Promo",
+      "sent": 57234,
+      "open_rate": 32.08,
+      "click_rate": 4.09,
+      "revenue": 14295.02
+    },
+    {
+      "campaign_name": "Oferta Limitada 9",
+      "type": "Promo",
+      "sent": 27116,
+      "open_rate": 31.52,
+      "click_rate": 6.33,
+      "revenue": 13666.22
+    },
+    {
+      "campaign_name": "Bienvenida 23",
+      "type": "Welcome",
+      "sent": 17763,
+      "open_rate": 62.03,
+      "click_rate": 11.76,
+      "revenue": 13427.86
+    }
+  ],
+  "ab_tests": [
+    {
+      "test": "Asunto Promo",
+      "type": "Promo",
+      "subject_a": "20% OFF hoy",
+      "subject_b": "\ud83d\udd25 Tu descuento expira",
+      "sent_per_variant": 26249,
+      "a_open_rate": 28.44,
+      "b_open_rate": 30.42,
+      "a_click_rate": 3.36,
+      "b_click_rate": 4.32,
+      "a_revenue": 5136.93,
+      "b_revenue": 5624.6,
+      "winner": "B"
+    },
+    {
+      "test": "Personalizaci\u00f3n",
+      "type": "Newsletter",
+      "subject_a": "Novedades de la semana",
+      "subject_b": "{nombre}, esto es para ti",
+      "sent_per_variant": 12055,
+      "a_open_rate": 35.9,
+      "b_open_rate": 47.91,
+      "a_click_rate": 3.79,
+      "b_click_rate": 4.03,
+      "a_revenue": 3445.27,
+      "b_revenue": 4231.63,
+      "winner": "B"
+    },
+    {
+      "test": "Urgencia Carrito",
+      "type": "Abandoned Cart",
+      "subject_a": "Tu carrito te espera",
+      "subject_b": "\u00daltimas horas para completar",
+      "sent_per_variant": 20390,
+      "a_open_rate": 46.72,
+      "b_open_rate": 57.53,
+      "a_click_rate": 17.1,
+      "b_click_rate": 18.05,
+      "a_revenue": 35897.8,
+      "b_revenue": 29375.77,
+      "winner": "A"
+    },
+    {
+      "test": "Emoji Asunto",
+      "type": "Promo",
+      "subject_a": "Nueva colecci\u00f3n",
+      "subject_b": "\u2728 Nueva colecci\u00f3n \u2728",
+      "sent_per_variant": 26777,
+      "a_open_rate": 31.8,
+      "b_open_rate": 37.15,
+      "a_click_rate": 4.17,
+      "b_click_rate": 5.29,
+      "a_revenue": 4595.16,
+      "b_revenue": 7227.71,
+      "winner": "B"
+    },
+    {
+      "test": "Win-back Oferta",
+      "type": "Win-back",
+      "subject_a": "Te extra\u00f1amos",
+      "subject_b": "Vuelve: 15% + env\u00edo gratis",
+      "sent_per_variant": 29214,
+      "a_open_rate": 19.18,
+      "b_open_rate": 25.3,
+      "a_click_rate": 3.89,
+      "b_click_rate": 4.54,
+      "a_revenue": 7119.09,
+      "b_revenue": 13776.14,
+      "winner": "B"
+    }
+  ]
+}

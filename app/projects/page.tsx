@@ -22,8 +22,8 @@ const projects = [
     description: "Análisis de 100k órdenes reales: revenue, LTV, churn y funnel de conversión.",
     description_en: "Analysis of 100k real orders: revenue, LTV, churn and conversion funnel.",
     tags: ["Python", "pandas", "Recharts", "Supabase"],
-    status: "próximamente",
-    status_en: "coming soon",
+    status: "en progreso",
+    status_en: "in progress",
     color: "#7C3AED",
   },
   {
@@ -33,8 +33,8 @@ const projects = [
     description: "Open rate, CTR, revenue atribuido y comparativa A/B de campañas de email.",
     description_en: "Open rate, CTR, attributed revenue and A/B comparison of email campaigns.",
     tags: ["Klaviyo API", "Python", "Recharts"],
-    status: "próximamente",
-    status_en: "coming soon",
+    status: "en progreso",
+    status_en: "in progress",
     color: "#E840D0",
   },
   {
@@ -44,8 +44,8 @@ const projects = [
     description: "Precios, ocupación y revenue estimado de listings de Airbnb por zona.",
     description_en: "Prices, occupancy and estimated revenue from Airbnb listings by area.",
     tags: ["Python", "D3.js", "Supabase"],
-    status: "próximamente",
-    status_en: "coming soon",
+    status: "en progreso",
+    status_en: "in progress",
     color: "#F59E0B",
   },
   {
@@ -55,8 +55,8 @@ const projects = [
     description: "Sube un CSV de campañas y Claude genera un análisis completo en lenguaje natural.",
     description_en: "Upload a campaign CSV and Claude generates a full natural language analysis.",
     tags: ["Claude API", "Next.js", "Python"],
-    status: "próximamente",
-    status_en: "coming soon",
+    status: "en progreso",
+    status_en: "in progress",
     color: "#00C4B0",
   },
 ]

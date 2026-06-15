@@ -1,0 +1,300 @@
+{
+  "totals": {
+    "revenue": 24738972.95,
+    "orders": 100000,
+    "customers": 20524,
+    "aov": 247.39,
+    "ltv": 1205.37,
+    "repeat_rate": 82.2,
+    "churn_rate": 26.3,
+    "date_range": {
+      "start": "2024-01-01",
+      "end": "2024-12-31"
+    }
+  },
+  "by_month": [
+    {
+      "month": "2024-01",
+      "revenue": 1588066.73,
+      "orders": 6375,
+      "customers": 5206,
+      "aov": 249.11
+    },
+    {
+      "month": "2024-02",
+      "revenue": 1536500.25,
+      "orders": 6236,
+      "customers": 5096,
+      "aov": 246.39
+    },
+    {
+      "month": "2024-03",
+      "revenue": 1652913.96,
+      "orders": 6767,
+      "customers": 5441,
+      "aov": 244.26
+    },
+    {
+      "month": "2024-04",
+      "revenue": 1682420.7,
+      "orders": 6703,
+      "customers": 5452,
+      "aov": 251.0
+    },
+    {
+      "month": "2024-05",
+      "revenue": 1756038.54,
+      "orders": 7207,
+      "customers": 5712,
+      "aov": 243.66
+    },
+    {
+      "month": "2024-06",
+      "revenue": 1771270.95,
+      "orders": 7053,
+      "customers": 5696,
+      "aov": 251.14
+    },
+    {
+      "month": "2024-07",
+      "revenue": 2174800.2,
+      "orders": 8853,
+      "customers": 6645,
+      "aov": 245.66
+    },
+    {
+      "month": "2024-08",
+      "revenue": 1921370.55,
+      "orders": 7770,
+      "customers": 6038,
+      "aov": 247.28
+    },
+    {
+      "month": "2024-09",
+      "revenue": 1895455.57,
+      "orders": 7868,
+      "customers": 6089,
+      "aov": 240.91
+    },
+    {
+      "month": "2024-10",
+      "revenue": 2001951.79,
+      "orders": 8240,
+      "customers": 6325,
+      "aov": 242.96
+    },
+    {
+      "month": "2024-11",
+      "revenue": 3296510.51,
+      "orders": 13142,
+      "customers": 8851,
+      "aov": 250.84
+    },
+    {
+      "month": "2024-12",
+      "revenue": 3461673.2,
+      "orders": 13786,
+      "customers": 9134,
+      "aov": 251.1
+    }
+  ],
+  "by_category": [
+    {
+      "category": "Electronics",
+      "revenue": 13207670.8,
+      "orders": 22089,
+      "aov": 597.93
+    },
+    {
+      "category": "Home",
+      "revenue": 4663927.5,
+      "orders": 17910,
+      "aov": 260.41
+    },
+    {
+      "category": "Clothing",
+      "revenue": 3377704.76,
+      "orders": 28001,
+      "aov": 120.63
+    },
+    {
+      "category": "Sports",
+      "revenue": 2351467.86,
+      "orders": 10032,
+      "aov": 234.4
+    },
+    {
+      "category": "Beauty",
+      "revenue": 913930.96,
+      "orders": 14935,
+      "aov": 61.19
+    },
+    {
+      "category": "Books",
+      "revenue": 224271.07,
+      "orders": 7033,
+      "aov": 31.89
+    }
+  ],
+  "top_products": [
+    {
+      "product": "Wireless Earbuds",
+      "category": "Electronics",
+      "revenue": 2699780.5,
+      "orders": 4483,
+      "aov": 602.23
+    },
+    {
+      "product": "Mechanical Keyboard",
+      "category": "Electronics",
+      "revenue": 2666267.08,
+      "orders": 4457,
+      "aov": 598.22
+    },
+    {
+      "product": "Smart Watch",
+      "category": "Electronics",
+      "revenue": 2640426.42,
+      "orders": 4391,
+      "aov": 601.33
+    },
+    {
+      "product": "4K Monitor",
+      "category": "Electronics",
+      "revenue": 2635991.84,
+      "orders": 4407,
+      "aov": 598.14
+    },
+    {
+      "product": "USB-C Hub",
+      "category": "Electronics",
+      "revenue": 2565204.96,
+      "orders": 4351,
+      "aov": 589.57
+    },
+    {
+      "product": "Air Purifier",
+      "category": "Home",
+      "revenue": 952740.37,
+      "orders": 3594,
+      "aov": 265.09
+    },
+    {
+      "product": "Throw Blanket",
+      "category": "Home",
+      "revenue": 940052.56,
+      "orders": 3659,
+      "aov": 256.92
+    },
+    {
+      "product": "Ceramic Mug Set",
+      "category": "Home",
+      "revenue": 936278.76,
+      "orders": 3544,
+      "aov": 264.19
+    },
+    {
+      "product": "LED Desk Lamp",
+      "category": "Home",
+      "revenue": 922320.75,
+      "orders": 3580,
+      "aov": 257.63
+    },
+    {
+      "product": "Knife Set",
+      "category": "Home",
+      "revenue": 912535.06,
+      "orders": 3533,
+      "aov": 258.29
+    }
+  ],
+  "funnel": [
+    {
+      "stage": "sessions",
+      "count": 930527,
+      "rate": 100.0
+    },
+    {
+      "stage": "product_views",
+      "count": 511790,
+      "rate": 55.0
+    },
+    {
+      "stage": "add_to_cart",
+      "count": 220070,
+      "rate": 23.7
+    },
+    {
+      "stage": "checkout",
+      "count": 140845,
+      "rate": 15.1
+    },
+    {
+      "stage": "purchase",
+      "count": 100000,
+      "rate": 10.7
+    }
+  ],
+  "ltv_by_cohort": [
+    {
+      "cohort": "2024-01",
+      "customers": 5206,
+      "ltv": 1825.26
+    },
+    {
+      "cohort": "2024-02",
+      "customers": 3481,
+      "ltv": 1492.73
+    },
+    {
+      "cohort": "2024-03",
+      "customers": 2638,
+      "ltv": 1253.38
+    },
+    {
+      "cohort": "2024-04",
+      "customers": 1940,
+      "ltv": 1092.76
+    },
+    {
+      "cohort": "2024-05",
+      "customers": 1553,
+      "ltv": 913.5
+    },
+    {
+      "cohort": "2024-06",
+      "customers": 1205,
+      "ltv": 822.21
+    },
+    {
+      "cohort": "2024-07",
+      "customers": 1147,
+      "ltv": 648.36
+    },
+    {
+      "cohort": "2024-08",
+      "customers": 819,
+      "ltv": 579.07
+    },
+    {
+      "cohort": "2024-09",
+      "customers": 659,
+      "ltv": 508.04
+    },
+    {
+      "cohort": "2024-10",
+      "customers": 540,
+      "ltv": 425.94
+    },
+    {
+      "cohort": "2024-11",
+      "customers": 729,
+      "ltv": 349.51
+    },
+    {
+      "cohort": "2024-12",
+      "customers": 607,
+      "ltv": 275.39
+    }
+  ]
+}
