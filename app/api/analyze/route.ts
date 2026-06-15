@@ -1,7 +1,7 @@
 import Anthropic from "@anthropic-ai/sdk"
 
-// Claude API streams can run long; allow the route up to 5 min on platforms that honor this.
-export const maxDuration = 300
+// Claude API streams can run long; 60s is the max on Vercel's Hobby plan (higher values fail the deploy).
+export const maxDuration = 60
 
 const MODEL = "claude-opus-4-8"
 const MAX_ROWS = 500
