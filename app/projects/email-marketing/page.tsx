@@ -178,12 +178,9 @@ function MinimalView({ data, m, view, setView }: { data: Email; m: typeof labels
   return (
     <main className="min-h-screen px-6 max-w-5xl mx-auto">
       <section className="pt-36 pb-10 border-b border-white/5">
-        <div className="flex items-center justify-between gap-4">
-          <Link href="/projects" className="font-mono text-xs text-white/30 hover:text-white/60 transition-colors">
-            {String.fromCharCode(8592)} {m.back}
-          </Link>
-          <ViewToggle view={view} setView={setView} theme="dark" accent={ACCENT} minimalLabel={m.viewMinimal} adminLabel={m.viewAdmin} />
-        </div>
+        <Link href="/projects" className="font-mono text-xs text-white/30 hover:text-white/60 transition-colors">
+          {String.fromCharCode(8592)} {m.back}
+        </Link>
         <p className="font-mono text-xs uppercase tracking-widest mt-6 mb-4" style={{ color: ACCENT }}>{m.eyebrow}</p>
         <h1 className="text-4xl font-semibold mb-4">{m.title}</h1>
         <p className="text-white/50 text-lg max-w-2xl leading-relaxed">{m.subtitle}</p>
@@ -439,6 +436,7 @@ export default function EmailDashboard() {
           <Link href="/about" className="hover:text-white transition-colors">{t.nav.about}</Link>
           <Link href="/projects" className="text-white">{t.nav.projects}</Link>
           <a href="mailto:veramanuelvlc@gmail.com" className="hover:text-white transition-colors">{t.nav.contact}</a>
+          {data && <ViewToggle view={view} setView={setView} theme="dark" accent={ACCENT} minimalLabel={m.viewMinimal} adminLabel={m.viewAdmin} />}
           <LocaleToggle />
         </div>
       </nav>

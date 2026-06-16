@@ -178,7 +178,6 @@ export function AdminShell({
               <h1 className="text-2xl font-semibold mt-2" style={{ color: ADMIN_DARK }}>{title}</h1>
             </div>
             <div className="flex items-center gap-2 flex-wrap">
-              <ViewToggle view={view} setView={setView} theme="light" accent={accent} minimalLabel={minimalLabel} adminLabel={adminLabel} />
               <button className={btn}><Download size={15} /> {exportLabel}</button>
               <button className={btn}><Upload size={15} /> {importLabel}</button>
               {range && <button className={btn}><Calendar size={15} /> {range}</button>}
