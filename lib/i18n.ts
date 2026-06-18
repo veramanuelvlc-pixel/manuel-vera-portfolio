@@ -29,6 +29,11 @@ export const content = {
       cta_contact: "Contacto",
       cta_projects: "Ver proyectos",
       rights: "Todos los derechos reservados.",
+      built_with: "Construido con",
+      contact_kicker: "Contacto",
+      contact_heading: "¿Trabajamos juntos?",
+      whatsapp: "Escríbeme por WhatsApp",
+      email: "Envíame un correo",
     },
     about: {
       title: "Sobre mí",
@@ -103,6 +108,11 @@ export const content = {
       cta_contact: "Get in touch",
       cta_projects: "View projects",
       rights: "All rights reserved.",
+      built_with: "Built with",
+      contact_kicker: "Contact",
+      contact_heading: "Let's work together?",
+      whatsapp: "Message me on WhatsApp",
+      email: "Send me an email",
     },
     about: {
       title: "About me",

@@ -5,11 +5,10 @@
   --font-mono: "JetBrains Mono", monospace;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/* NOTE: do not add an unlayered `* { margin:0; padding:0 }` reset here.
+   Tailwind v4 preflight already applies that inside @layer base; an unlayered
+   copy outscopes every layered padding/margin utility (px-*, py-*, mx-auto, …)
+   and silently breaks spacing and centering site-wide. */
 
 html {
   scroll-behavior: smooth;

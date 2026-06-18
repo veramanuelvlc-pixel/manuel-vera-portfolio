@@ -1,14 +1,29 @@
 "use client"
 import { useEffect, useRef } from "react"
 import Link from "next/link"
+import { Mail } from "lucide-react"
 import { useLocale } from "@/lib/locale-context"
 import { LocaleToggle } from "@/components/sections/locale-toggle"
 import { barlow, instrumentSerif } from "@/lib/fonts"
+import { BrandIcon } from "@/components/brand-icons"
 
 const ACCENT = "#00C4B0"
 const MAIL = "mailto:veramanuelvlc@gmail.com"
+const WHATSAPP = "https://wa.me/59177442301"
+const LINKEDIN = "https://www.linkedin.com/in/manuel-veraleon"
+const GITHUB = "https://github.com/veramanuelvlc-pixel"
 
 const stackLine = "Python · Meta Ads API · Next.js · Claude API"
+
+const brands = [
+  { name: "vercel" as const, label: "Vercel", href: "https://vercel.com" },
+  { name: "github" as const, label: "GitHub", href: GITHUB },
+  { name: "supabase" as const, label: "Supabase", href: "https://supabase.com" },
+  { name: "claude" as const, label: "Claude Code", href: "https://claude.com/claude-code" },
+]
+
+const focusRing =
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00C4B0]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
 
 // TODO: reemplazar con vídeo propio o eliminar si no hay uno.
 // Placeholder de ejemplo exportado por Stitch (stream de demo de Mux).
@@ -127,8 +142,27 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Built-with / stack logos */}
+        <section className="mx-auto w-full max-w-5xl px-8 pt-6 pb-4">
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+            <span className="text-xs uppercase tracking-[0.2em] text-slate-400">{h.built_with}</span>
+            {brands.map((b) => (
+              <a
+                key={b.name}
+                href={b.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-slate-400 transition-colors hover:text-white"
+              >
+                <BrandIcon name={b.name} label={b.label} className="h-4 w-4" />
+                <span className="text-sm">{b.label}</span>
+              </a>
+            ))}
+          </div>
+        </section>
+
         {/* Metrics */}
-        <section className="mx-auto w-full max-w-5xl px-8 py-16">
+        <section className="mx-auto w-full max-w-5xl px-8 pt-10 pb-24">
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {t.stats.map((s) => (
               <div key={s.label} className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 text-center">
@@ -146,14 +180,14 @@ export default function Home() {
             style={{ background: "radial-gradient(120% 80% at 50% 120%, rgba(0,196,176,0.22), transparent 60%)" }}
           />
           <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-40 bg-gradient-to-b from-[#0A0A0A] to-transparent" />
-          <div className="relative z-10 mx-auto max-w-4xl px-8 py-28 text-center md:py-32">
+          <div className="relative z-10 mx-auto max-w-4xl px-8 py-32 text-center md:py-40">
             <h2
               className="mb-6 text-balance text-5xl leading-tight text-white md:text-7xl"
               style={{ fontFamily: "var(--font-serif), serif", fontStyle: "italic" }}
             >
               {h.cta_title}
             </h2>
-            <p className="mx-auto mb-12 max-w-2xl text-lg leading-relaxed text-slate-400 md:text-xl">
+            <p className="mx-auto mb-12 max-w-2xl text-lg leading-relaxed text-slate-300 md:text-xl">
               {h.cta_desc}
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
@@ -174,14 +208,56 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Direct contact */}
+        <section className="mx-auto w-full max-w-3xl px-8 py-24 text-center">
+          <span className="mb-3 block text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: ACCENT }}>
+            {h.contact_kicker}
+          </span>
+          <h2
+            className="mb-10 text-balance text-3xl text-white md:text-4xl"
+            style={{ fontFamily: "var(--font-serif), serif", fontStyle: "italic" }}
+          >
+            {h.contact_heading}
+          </h2>
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
+            <a
+              href={WHATSAPP}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`liquid-glass-strong inline-flex min-w-[220px] items-center justify-center gap-2.5 px-8 py-4 font-semibold text-white ${focusRing}`}
+            >
+              <BrandIcon name="whatsapp" label="WhatsApp" className="h-5 w-5" />
+              {h.whatsapp}
+            </a>
+            <a
+              href={MAIL}
+              className={`inline-flex min-w-[220px] items-center justify-center gap-2.5 rounded-full bg-white px-8 py-4 font-semibold text-[#0A0A0A] transition-colors hover:bg-slate-200 ${focusRing}`}
+            >
+              <Mail size={18} />
+              {h.email}
+            </a>
+          </div>
+        </section>
+
         {/* Footer */}
         <footer className="border-t border-white/[0.06] bg-black px-8 py-12">
           <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-6 md:flex-row">
             <div className="text-sm text-slate-500">© {year} Manuel Vera. {h.rights}</div>
-            <div className="flex gap-8 text-sm text-slate-400">
-              <Link href="/projects" className="transition-colors hover:text-white">{t.nav.projects}</Link>
-              <Link href="/about" className="transition-colors hover:text-white">{t.nav.about}</Link>
-              <a href={MAIL} className="transition-colors hover:text-white">{t.nav.contact}</a>
+            <div className="flex items-center gap-6">
+              <nav className="flex gap-8 text-sm text-slate-400">
+                <Link href="/projects" className="transition-colors hover:text-white">{t.nav.projects}</Link>
+                <Link href="/about" className="transition-colors hover:text-white">{t.nav.about}</Link>
+                <a href={MAIL} className="transition-colors hover:text-white">{t.nav.contact}</a>
+              </nav>
+              <span className="h-4 w-px bg-white/10" />
+              <div className="flex items-center gap-4">
+                <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-slate-400 transition-colors hover:text-white">
+                  <BrandIcon name="linkedin" label="LinkedIn" className="h-5 w-5" />
+                </a>
+                <a href={GITHUB} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-slate-400 transition-colors hover:text-white">
+                  <BrandIcon name="github" label="GitHub" className="h-5 w-5" />
+                </a>
+              </div>
             </div>
           </div>
         </footer>
