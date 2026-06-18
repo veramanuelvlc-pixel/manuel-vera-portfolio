@@ -2,6 +2,7 @@
 import Link from "next/link"
 import { useLocale } from "@/lib/locale-context"
 import { LocaleToggle } from "@/components/sections/locale-toggle"
+import { barlow, instrumentSerif } from "@/lib/fonts"
 
 const projects = [
   {
@@ -65,7 +66,10 @@ export default function Projects() {
   const { t, locale } = useLocale()
 
   return (
-    <main className="min-h-screen px-6 max-w-4xl mx-auto">
+    <main
+      className={`${barlow.variable} ${instrumentSerif.variable} min-h-screen px-6 max-w-4xl mx-auto`}
+      style={{ fontFamily: "var(--font-barlow), sans-serif" }}
+    >
 
       <nav className="fixed top-0 left-0 right-0 flex justify-between items-center px-8 py-5 border-b border-white/5 bg-[#0A0A0A]/80 backdrop-blur-sm z-50">
         <Link href="/" className="font-mono text-sm text-[#00C4B0]">mv.dev</Link>
@@ -78,9 +82,9 @@ export default function Projects() {
       </nav>
 
       <section className="pt-36 pb-12 border-b border-white/5">
-        <p className="font-mono text-[#00C4B0] text-xs uppercase tracking-widest mb-4">{t.nav.projects}</p>
-        <h1 className="text-4xl font-semibold mb-4">{locale === "es" ? "Proyectos" : "Projects"}</h1>
-        <p className="text-white/40 text-lg">{locale === "es" ? "Dashboards con datos reales y open source." : "Dashboards built with real and open source data."}</p>
+        <p className="text-[#00C4B0] text-xs uppercase tracking-widest mb-4">{t.nav.projects}</p>
+        <h1 className="text-5xl font-serif italic leading-[1.05] mb-4">{locale === "es" ? "Proyectos" : "Projects"}</h1>
+        <p className="text-white/60 text-lg">{locale === "es" ? "Dashboards con datos reales y open source." : "Dashboards built with real and open source data."}</p>
       </section>
 
       <section className="py-12 pb-24">
@@ -91,7 +95,7 @@ export default function Projects() {
                 <div className="flex items-start justify-between gap-4 mb-3">
                   <div className="flex items-center gap-3">
                     <span className="font-mono text-xs text-white/20">{String(i + 1).padStart(2, "0")}</span>
-                    <h2 className="font-medium text-white group-hover:text-[#00C4B0] transition-colors">
+                    <h2 className="font-serif italic text-xl text-white group-hover:text-[#00C4B0] transition-colors">
                       {locale === "es" ? p.title : p.title_en}
                     </h2>
                   </div>
@@ -99,12 +103,12 @@ export default function Projects() {
                     {locale === "es" ? p.status : p.status_en}
                   </span>
                 </div>
-                <p className="text-white/40 text-sm leading-relaxed mb-4 ml-7">
+                <p className="text-white/60 text-sm leading-relaxed text-pretty mb-4 ml-7">
                   {locale === "es" ? p.description : p.description_en}
                 </p>
                 <div className="flex flex-wrap gap-2 ml-7">
                   {p.tags.map((tag) => (
-                    <span key={tag} className="font-mono text-xs text-white/25 px-2 py-0.5 border border-white/5 rounded-full">{tag}</span>
+                    <span key={tag} className="text-xs text-white/50 px-2 py-0.5 border border-white/10 rounded-full">{tag}</span>
                   ))}
                 </div>
               </div>
