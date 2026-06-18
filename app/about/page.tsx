@@ -15,7 +15,7 @@ const brands = [
 ]
 
 export default function About() {
-  const { t } = useLocale()
+  const { t, locale } = useLocale()
   const a = t.about
 
   return (
@@ -39,7 +39,13 @@ export default function About() {
         <h1 className="text-5xl font-serif italic leading-[1.05] mb-6">Manuel Vera</h1>
         <p className="text-white/70 text-lg max-w-2xl leading-relaxed text-pretty mb-8">{a.bio}</p>
         <div className="flex flex-wrap items-center gap-4">
-          <a href="/cv-manuel-vera.pdf" className="inline-flex items-center gap-2 px-5 py-2.5 border border-white/10 text-white/70 text-sm rounded-lg hover:border-white/30 hover:text-white transition-colors">
+          <a
+            href={locale === "es" ? "/cv-manuel-vera-es.pdf" : "/cv-manuel-vera-en.pdf"}
+            download={locale === "es" ? "Manuel-Vera-CV.pdf" : "Manuel-Vera-Resume.pdf"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 border border-white/10 text-white/70 text-sm rounded-lg hover:border-white/30 hover:text-white transition-colors"
+          >
             {String.fromCharCode(8595)} {a.download_cv}
           </a>
           <div className="flex items-center gap-3">
