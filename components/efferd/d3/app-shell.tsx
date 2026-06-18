@@ -1,19 +1,7 @@
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
-import { AppHeader } from "@/components/efferd/d3/app-header";
-import { AppSidebar } from "@/components/efferd/d3/app-sidebar";
-
+// Sidebar and decorative header removed — the dashboard pages supply the
+// shared top nav and own the full width.
 export function AppShell({ children }: { children: React.ReactNode }) {
 	return (
-		<div className="overflow-hidden">
-			<SidebarProvider className="relative h-svh">
-				<AppSidebar />
-				<SidebarInset className="md:peer-data-[variant=inset]:ml-0">
-					<AppHeader />
-					<div className="flex flex-1 flex-col gap-4 overflow-y-auto p-4 md:p-6">
-						{children}
-					</div>
-				</SidebarInset>
-			</SidebarProvider>
-		</div>
+		<div className="flex flex-1 flex-col gap-4 p-4 md:p-6">{children}</div>
 	);
 }

@@ -1,23 +1,9 @@
 import { cn } from "@/lib/utils";
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
-import { AppHeader } from "@/components/efferd/d2/app-header";
-import { AppSidebar } from "@/components/efferd/d2/app-sidebar";
 
+// Sidebar and decorative header removed — the dashboard pages supply the
+// shared top nav and own the full width.
 export function AppShell({ children }: { children: React.ReactNode }) {
 	return (
-		<SidebarProvider className={cn("[--app-wrapper-max-width:80rem]")}>
-			<AppSidebar />
-			<SidebarInset>
-				<AppHeader />
-				<div
-					className={cn(
-						"flex flex-1 flex-col p-4 md:p-6",
-						"mx-auto w-full max-w-(--app-wrapper-max-width)"
-					)}
-				>
-					{children}
-				</div>
-			</SidebarInset>
-		</SidebarProvider>
+		<div className={cn("flex flex-1 flex-col p-4 md:p-6")}>{children}</div>
 	);
 }
