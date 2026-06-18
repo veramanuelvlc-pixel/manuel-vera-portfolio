@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import Link from "next/link"
 import {
   ResponsiveContainer,
@@ -13,34 +13,43 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
+  Cell,
 } from "recharts"
 import type { TooltipContentProps } from "recharts"
+import {
+  Search,
+  Bell,
+  Maximize2,
+  MoreHorizontal,
+  Building2,
+  Tag,
+  Percent,
+  Coins,
+  Star,
+  MapPin,
+  LayoutDashboard,
+  Home,
+  CalendarDays,
+  MessageSquare,
+  Settings2,
+  ChevronsUpDown,
+  ArrowLeft,
+} from "lucide-react"
 import { useLocale } from "@/lib/locale-context"
-import { LocaleToggle } from "@/components/sections/locale-toggle"
-import { AdminShell, KpiCard, ViewToggle, type DashView, ADMIN_DARK, AX_TICK, AX_LINE, AX_GRID } from "@/components/dashboard/admin-shell"
 
-type Totals = {
-  listings: number
-  avg_price: number
-  avg_occupancy: number
-  est_monthly_revenue: number
-  avg_rating: number
-  superhost_rate: number
-  neighborhoods: number
-}
 type Neighborhood = { neighborhood: string; listings: number; avg_price: number; occupancy: number; est_revenue: number; avg_rating: number }
 type RoomType = { room_type: string; listings: number; avg_price: number; occupancy: number }
 type ScatterPoint = { price: number; occupancy: number; neighborhood: string; room_type: string }
 type Listing = { name: string; neighborhood: string; room_type: string; price: number; occupancy: number; est_revenue: number; rating: number }
 type RealEstate = {
-  totals: Totals
+  totals: { listings: number; avg_price: number; avg_occupancy: number; est_monthly_revenue: number; avg_rating: number; superhost_rate: number; neighborhoods: number }
   by_neighborhood: Neighborhood[]
   by_room_type: RoomType[]
   scatter: ScatterPoint[]
   top_listings: Listing[]
 }
 
-type Metric = "avg_price" | "occupancy" | "est_revenue" | "listings"
+type Metric = "est_revenue" | "avg_price" | "occupancy" | "listings"
 
 const ACCENT = "#F59E0B"
 const ROOM_COLORS: Record<string, string> = {
@@ -51,42 +60,44 @@ const ROOM_COLORS: Record<string, string> = {
 
 const labels = {
   es: {
-    eyebrow: "Caso de estudio",
-    title: "Real Estate Market",
-    subtitle: "Precios, ocupación y revenue estimado de listings de Airbnb por zona.",
-    back: "Volver a proyectos",
-    loading: "Cargando datos…",
-    error: "No se pudieron cargar los datos.",
-    kpis: { listings: "Listings", price: "Precio medio", occ: "Ocupación", revenue: "Revenue/mes", rating: "Rating", superhost: "Superhosts" },
-    byNeighborhood: "Por zona",
-    metrics: { avg_price: "Precio", occupancy: "Ocupación", est_revenue: "Revenue", listings: "Listings" },
+    back: "Proyectos",
+    loading: "Cargando…",
+    nav: { dashboard: "Dashboard", listings: "Listings", areas: "Zonas", calendar: "Calendario", reviews: "Reseñas", settings: "Ajustes" },
+    search: "Buscar…",
+    kpis: { listings: "Listings", price: "Precio medio", occ: "Ocupación", revenue: "Revenue/mes" },
+    kpiSub: { listings: (n: number) => `${n} zonas`, price: "por noche", occ: "media de listings", revenue: "estimado" },
+    overview: "Resumen",
+    customize: "Personalizar",
+    byArea: "Por zona",
+    metrics: { est_revenue: "Revenue", avg_price: "Precio", occupancy: "Ocupación", listings: "Listings" },
+    roomMix: "Mix por tipo",
+    quality: "Calidad",
+    superhosts: "Superhosts",
+    ratingLbl: "Rating medio",
     scatter: "Precio vs ocupación",
     scatterX: "Precio/noche (€)",
-    scatterY: "Ocupación (%)",
     topListings: "Top listings por revenue",
     cols: { listing: "Listing", zone: "Zona", room: "Tipo", price: "Precio", occ: "Ocupación", revenue: "Revenue/mes", rating: "Rating" },
-    viewMinimal: "Minimal",
-    viewAdmin: "Admin",
-    admin: { title: "Resumen inmobiliario", export: "Exportar", import: "Importar", goal: "Meta", nav: ["Resumen", "Zonas", "Listings", "Ajustes"] as [string, string, string, string] },
   },
   en: {
-    eyebrow: "Case study",
-    title: "Real Estate Market",
-    subtitle: "Prices, occupancy and estimated revenue from Airbnb listings by area.",
-    back: "Back to projects",
-    loading: "Loading data…",
-    error: "Could not load data.",
-    kpis: { listings: "Listings", price: "Avg price", occ: "Occupancy", revenue: "Revenue/mo", rating: "Rating", superhost: "Superhosts" },
-    byNeighborhood: "By area",
-    metrics: { avg_price: "Price", occupancy: "Occupancy", est_revenue: "Revenue", listings: "Listings" },
+    back: "Projects",
+    loading: "Loading…",
+    nav: { dashboard: "Dashboard", listings: "Listings", areas: "Areas", calendar: "Calendar", reviews: "Reviews", settings: "Settings" },
+    search: "Search…",
+    kpis: { listings: "Listings", price: "Avg price", occ: "Occupancy", revenue: "Revenue/mo" },
+    kpiSub: { listings: (n: number) => `${n} areas`, price: "per night", occ: "across listings", revenue: "estimated" },
+    overview: "Overview",
+    customize: "Customize",
+    byArea: "By area",
+    metrics: { est_revenue: "Revenue", avg_price: "Price", occupancy: "Occupancy", listings: "Listings" },
+    roomMix: "Room mix",
+    quality: "Quality",
+    superhosts: "Superhosts",
+    ratingLbl: "Avg rating",
     scatter: "Price vs occupancy",
     scatterX: "Price/night (€)",
-    scatterY: "Occupancy (%)",
     topListings: "Top listings by revenue",
     cols: { listing: "Listing", zone: "Area", room: "Type", price: "Price", occ: "Occupancy", revenue: "Revenue/mo", rating: "Rating" },
-    viewMinimal: "Minimal",
-    viewAdmin: "Admin",
-    admin: { title: "Real estate summary", export: "Export", import: "Import", goal: "Goal", nav: ["Overview", "Areas", "Listings", "Settings"] as [string, string, string, string] },
   },
 }
 
@@ -101,17 +112,16 @@ function fmtMetric(metric: Metric, v: number) {
   return nf.format(v)
 }
 
-function NeighborhoodTooltip({ active, payload, metric, m }: Partial<TooltipContentProps<number, string>> & { metric: Metric; m: typeof labels.es }) {
+function AreaTooltip({ active, payload, metric, m }: Partial<TooltipContentProps<number, string>> & { metric: Metric; m: typeof labels.es }) {
   if (!active || !payload?.length) return null
   const p = payload[0].payload as Neighborhood
   return (
-    <div className="rounded-lg border border-white/10 bg-[#111] px-3 py-2 shadow-lg">
-      <p className="font-mono text-[11px] text-white/60 mb-1">{p.neighborhood}</p>
-      <p className="font-mono text-sm text-white">
-        <span style={{ color: ACCENT }}>{m.metrics[metric]}: </span>
-        {fmtMetric(metric, p[metric])}
+    <div className="rounded-lg border border-white/10 bg-[#1a1a1a] px-3 py-2 shadow-lg">
+      <p className="text-[11px] text-white/50 mb-1">{p.neighborhood}</p>
+      <p className="text-sm text-white font-medium tabular-nums">
+        <span style={{ color: ACCENT }}>{m.metrics[metric]}: </span>{fmtMetric(metric, p[metric])}
       </p>
-      <p className="font-mono text-[11px] text-white/40">{nf.format(p.listings)} listings · {p.occupancy}% occ · ★ {p.avg_rating}</p>
+      <p className="text-[11px] text-white/35 mt-0.5">{nf.format(p.listings)} listings · {p.occupancy}% · ★ {p.avg_rating}</p>
     </div>
   )
 }
@@ -120,282 +130,291 @@ function ScatterTooltip({ active, payload }: Partial<TooltipContentProps<number,
   if (!active || !payload?.length) return null
   const p = payload[0].payload as ScatterPoint
   return (
-    <div className="rounded-lg border border-white/10 bg-[#111] px-3 py-2 shadow-lg">
-      <p className="font-mono text-[11px] text-white/60 mb-1">{p.neighborhood}</p>
-      <p className="font-mono text-xs text-white/70">{p.room_type}</p>
-      <p className="font-mono text-sm text-white">{eur0(p.price)}/noche · {p.occupancy}%</p>
+    <div className="rounded-lg border border-white/10 bg-[#1a1a1a] px-3 py-2 shadow-lg">
+      <p className="text-[11px] text-white/50 mb-0.5">{p.neighborhood}</p>
+      <p className="text-xs text-white/60">{p.room_type}</p>
+      <p className="text-sm text-white font-medium tabular-nums mt-0.5">{eur0(p.price)} · {p.occupancy}%</p>
     </div>
   )
 }
-
-function AdminScatterTooltip({ active, payload }: Partial<TooltipContentProps<number, string>>) {
-  if (!active || !payload?.length) return null
-  const p = payload[0].payload as ScatterPoint
-  return (
-    <div className="rounded-lg border border-gray-200 bg-white px-3 py-2 shadow-md">
-      <p className="text-[11px] text-gray-500 mb-1">{p.neighborhood} · {p.room_type}</p>
-      <p className="text-xs font-semibold" style={{ color: ADMIN_DARK }}>{eur0(p.price)}/noche · {p.occupancy}%</p>
-    </div>
-  )
-}
-
-function AdminNeighborhoodTooltip({ active, payload }: Partial<TooltipContentProps<number, string>>) {
-  if (!active || !payload?.length) return null
-  const p = payload[0].payload as Neighborhood
-  return (
-    <div className="rounded-lg border border-gray-200 bg-white px-3 py-2 shadow-md">
-      <p className="text-[11px] text-gray-500 mb-1">{p.neighborhood}</p>
-      <p className="text-xs font-semibold" style={{ color: ADMIN_DARK }}>{eur0(p.est_revenue)}</p>
-    </div>
-  )
-}
-
-/* --------------------------------- Minimal --------------------------------- */
-
-function MinimalView({ data, m, view, setView }: { data: RealEstate; m: typeof labels.es; view: DashView; setView: (v: DashView) => void }) {
-  const [metric, setMetric] = useState<Metric>("avg_price")
-  const roomTypes = Array.from(new Set(data.scatter.map((s) => s.room_type)))
-
-  return (
-    <main className="min-h-screen px-6 max-w-5xl mx-auto">
-      <section className="pt-36 pb-10 border-b border-white/5">
-        <Link href="/projects" className="font-mono text-xs text-white/30 hover:text-white/60 transition-colors">
-          {String.fromCharCode(8592)} {m.back}
-        </Link>
-        <p className="font-mono text-xs uppercase tracking-widest mt-6 mb-4" style={{ color: ACCENT }}>{m.eyebrow}</p>
-        <h1 className="text-4xl font-semibold mb-4">{m.title}</h1>
-        <p className="text-white/50 text-lg max-w-2xl leading-relaxed">{m.subtitle}</p>
-      </section>
-
-      <section className="py-10 border-b border-white/5">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-white/5 rounded-xl overflow-hidden border border-white/5">
-          {[
-            { label: m.kpis.listings, value: nf.format(data.totals.listings) },
-            { label: m.kpis.price, value: eur0(data.totals.avg_price) },
-            { label: m.kpis.occ, value: data.totals.avg_occupancy + "%" },
-            { label: m.kpis.revenue, value: eurCompact(data.totals.est_monthly_revenue) },
-            { label: m.kpis.rating, value: "★ " + data.totals.avg_rating },
-            { label: m.kpis.superhost, value: data.totals.superhost_rate + "%" },
-          ].map((kpi) => (
-            <div key={kpi.label} className="bg-[#0A0A0A] p-5">
-              <p className="text-xs text-white/30 uppercase tracking-widest font-mono mb-2">{kpi.label}</p>
-              <p className="font-mono text-2xl tabular-nums" style={{ color: ACCENT }}>{kpi.value}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="py-10 border-b border-white/5">
-        <div className="flex items-center justify-between flex-wrap gap-4 mb-6">
-          <p className="text-xs text-white/30 uppercase tracking-widest font-mono">{m.byNeighborhood}</p>
-          <div className="flex gap-2">
-            {(["avg_price", "occupancy", "est_revenue", "listings"] as Metric[]).map((k) => (
-              <button
-                key={k}
-                onClick={() => setMetric(k)}
-                className="font-mono text-xs px-3 py-1.5 rounded-full border transition-colors"
-                style={metric === k ? { borderColor: ACCENT + "60", color: ACCENT, backgroundColor: ACCENT + "12" } : { borderColor: "rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.4)" }}
-              >
-                {m.metrics[k]}
-              </button>
-            ))}
-          </div>
-        </div>
-        <div style={{ height: data.by_neighborhood.length * 44 + 24 }} className="w-full">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart layout="vertical" data={data.by_neighborhood} margin={{ top: 0, right: 16, bottom: 0, left: 8 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" horizontal={false} />
-              <XAxis type="number" tick={{ fill: "rgba(255,255,255,0.3)", fontSize: 11, fontFamily: "monospace" }} tickLine={false} axisLine={false} tickFormatter={(v: number) => (metric === "est_revenue" ? eurCompact(v) : metric === "avg_price" ? eur0(v) : metric === "occupancy" ? v + "%" : nf.format(v))} />
-              <YAxis type="category" dataKey="neighborhood" tick={{ fill: "rgba(255,255,255,0.5)", fontSize: 11 }} tickLine={false} axisLine={false} width={84} />
-              <Tooltip content={<NeighborhoodTooltip metric={metric} m={m} />} cursor={{ fill: "rgba(255,255,255,0.03)" }} />
-              <Bar dataKey={metric} fill={ACCENT} radius={[0, 4, 4, 0]} barSize={18} />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-      </section>
-
-      <section className="py-10 border-b border-white/5">
-        <p className="text-xs text-white/30 uppercase tracking-widest font-mono mb-6">{m.scatter}</p>
-        <div className="h-96 w-full">
-          <ResponsiveContainer width="100%" height="100%">
-            <ScatterChart margin={{ top: 8, right: 16, bottom: 16, left: -4 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
-              <XAxis type="number" dataKey="price" name="price" unit="€" tick={{ fill: "rgba(255,255,255,0.3)", fontSize: 11, fontFamily: "monospace" }} tickLine={false} axisLine={{ stroke: "rgba(255,255,255,0.08)" }} label={{ value: m.scatterX, position: "insideBottom", offset: -8, fill: "rgba(255,255,255,0.3)", fontSize: 11 }} />
-              <YAxis type="number" dataKey="occupancy" name="occupancy" unit="%" tick={{ fill: "rgba(255,255,255,0.3)", fontSize: 11, fontFamily: "monospace" }} tickLine={false} axisLine={false} width={48} />
-              <ZAxis range={[40, 40]} />
-              <Tooltip content={<ScatterTooltip />} cursor={{ strokeDasharray: "3 3", stroke: "rgba(255,255,255,0.1)" }} />
-              <Legend wrapperStyle={{ fontSize: 12, fontFamily: "monospace" }} iconType="circle" />
-              {roomTypes.map((rt) => (
-                <Scatter key={rt} name={rt} data={data.scatter.filter((s) => s.room_type === rt)} fill={ROOM_COLORS[rt] ?? ACCENT} fillOpacity={0.6} />
-              ))}
-            </ScatterChart>
-          </ResponsiveContainer>
-        </div>
-      </section>
-
-      <section className="py-10 pb-24">
-        <p className="text-xs text-white/30 uppercase tracking-widest font-mono mb-6">{m.topListings}</p>
-        <div className="overflow-x-auto rounded-xl border border-white/5">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-white/5 text-left">
-                <th className="font-mono text-xs text-white/30 uppercase tracking-wider font-normal px-4 py-3">{m.cols.listing}</th>
-                <th className="font-mono text-xs text-white/30 uppercase tracking-wider font-normal px-4 py-3">{m.cols.zone}</th>
-                <th className="font-mono text-xs text-white/30 uppercase tracking-wider font-normal px-4 py-3">{m.cols.room}</th>
-                <th className="font-mono text-xs text-white/30 uppercase tracking-wider font-normal px-4 py-3 text-right">{m.cols.price}</th>
-                <th className="font-mono text-xs text-white/30 uppercase tracking-wider font-normal px-4 py-3 text-right">{m.cols.occ}</th>
-                <th className="font-mono text-xs text-white/30 uppercase tracking-wider font-normal px-4 py-3 text-right">{m.cols.revenue}</th>
-                <th className="font-mono text-xs text-white/30 uppercase tracking-wider font-normal px-4 py-3 text-right">{m.cols.rating}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.top_listings.map((l, i) => (
-                <tr key={l.name + i} className="border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition-colors">
-                  <td className="px-4 py-3 text-white/80">{l.name}</td>
-                  <td className="px-4 py-3 text-white/40">{l.neighborhood}</td>
-                  <td className="px-4 py-3 text-white/40">{l.room_type}</td>
-                  <td className="px-4 py-3 text-right font-mono text-white/70 tabular-nums">{eur0(l.price)}</td>
-                  <td className="px-4 py-3 text-right font-mono text-white/70 tabular-nums">{l.occupancy}%</td>
-                  <td className="px-4 py-3 text-right font-mono tabular-nums" style={{ color: ACCENT }}>{eur0(l.est_revenue)}</td>
-                  <td className="px-4 py-3 text-right font-mono text-white/70 tabular-nums">★ {l.rating}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-    </main>
-  )
-}
-
-/* ---------------------------------- Admin ---------------------------------- */
-
-function AdminView({ data, m, view, setView }: { data: RealEstate; m: typeof labels.es; view: DashView; setView: (v: DashView) => void }) {
-  const roomTypes = Array.from(new Set(data.scatter.map((s) => s.room_type)))
-
-  return (
-    <AdminShell accent={ACCENT} title={m.admin.title} backLabel={m.back} view={view} setView={setView} navLabels={m.admin.nav} exportLabel={m.admin.export} importLabel={m.admin.import} minimalLabel={m.viewMinimal} adminLabel={m.viewAdmin}>
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <KpiCard label={m.kpis.revenue} value={eurCompact(data.totals.est_monthly_revenue)} goal={eurCompact(data.totals.est_monthly_revenue * 1.1)} goalLabel={m.admin.goal} vsLabel="" />
-        <KpiCard label={m.kpis.price} value={eur0(data.totals.avg_price)} goal={eur0(data.totals.avg_price * 1.1)} goalLabel={m.admin.goal} vsLabel="" />
-        <KpiCard label={m.kpis.occ} value={data.totals.avg_occupancy + "%"} goal={(data.totals.avg_occupancy * 1.1).toFixed(1) + "%"} goalLabel={m.admin.goal} vsLabel="" />
-        <KpiCard label={m.kpis.listings} value={nf.format(data.totals.listings)} goalLabel={m.admin.goal} vsLabel="" />
-      </div>
-
-      <div className="grid lg:grid-cols-2 gap-4 mb-8">
-        {/* Revenue by neighborhood */}
-        <div className="bg-white rounded-xl border border-gray-200/70 p-5 shadow-sm">
-          <h3 className="text-sm font-semibold mb-4" style={{ color: ADMIN_DARK }}>{m.byNeighborhood} · {m.kpis.revenue}</h3>
-          <div style={{ height: data.by_neighborhood.length * 36 + 8 }} className="w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart layout="vertical" data={data.by_neighborhood} margin={{ top: 0, right: 12, bottom: 0, left: 8 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke={AX_GRID} horizontal={false} />
-                <XAxis type="number" tick={{ fill: AX_TICK, fontSize: 11 }} tickLine={false} axisLine={false} tickFormatter={(v: number) => eurCompact(v)} />
-                <YAxis type="category" dataKey="neighborhood" tick={{ fill: "#4b5563", fontSize: 11 }} tickLine={false} axisLine={false} width={78} />
-                <Tooltip cursor={{ fill: "rgba(0,0,0,0.03)" }} content={<AdminNeighborhoodTooltip />} />
-                <Bar dataKey="est_revenue" fill={ACCENT} radius={[0, 4, 4, 0]} barSize={14} />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
-
-        {/* Price vs occupancy scatter */}
-        <div className="bg-white rounded-xl border border-gray-200/70 p-5 shadow-sm">
-          <h3 className="text-sm font-semibold mb-4" style={{ color: ADMIN_DARK }}>{m.scatter}</h3>
-          <div className="h-64 w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <ScatterChart margin={{ top: 8, right: 12, bottom: 8, left: -8 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke={AX_GRID} />
-                <XAxis type="number" dataKey="price" name="price" unit="€" tick={{ fill: AX_TICK, fontSize: 11 }} tickLine={false} axisLine={{ stroke: AX_LINE }} />
-                <YAxis type="number" dataKey="occupancy" name="occupancy" unit="%" tick={{ fill: AX_TICK, fontSize: 11 }} tickLine={false} axisLine={false} width={40} />
-                <ZAxis range={[30, 30]} />
-                <Tooltip content={<AdminScatterTooltip />} cursor={{ strokeDasharray: "3 3", stroke: AX_LINE }} />
-                <Legend wrapperStyle={{ fontSize: 11 }} iconType="circle" />
-                {roomTypes.map((rt) => (
-                  <Scatter key={rt} name={rt} data={data.scatter.filter((s) => s.room_type === rt)} fill={ROOM_COLORS[rt] ?? ACCENT} fillOpacity={0.65} />
-                ))}
-              </ScatterChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
-      </div>
-
-      {/* Top listings table */}
-      <div className="bg-white rounded-xl border border-gray-200/70 p-5 shadow-sm">
-        <h3 className="text-sm font-semibold mb-4" style={{ color: ADMIN_DARK }}>{m.topListings}</h3>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="text-left border-b border-gray-100">
-                <th className="font-medium text-gray-400 text-xs py-2.5">{m.cols.listing}</th>
-                <th className="font-medium text-gray-400 text-xs py-2.5">{m.cols.zone}</th>
-                <th className="font-medium text-gray-400 text-xs py-2.5">{m.cols.room}</th>
-                <th className="font-medium text-gray-400 text-xs py-2.5 text-right">{m.cols.price}</th>
-                <th className="font-medium text-gray-400 text-xs py-2.5 text-right">{m.cols.occ}</th>
-                <th className="font-medium text-gray-400 text-xs py-2.5 text-right">{m.cols.revenue}</th>
-                <th className="font-medium text-gray-400 text-xs py-2.5 text-right">{m.cols.rating}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.top_listings.map((l, i) => (
-                <tr key={l.name + i} className="border-b border-gray-50 last:border-0">
-                  <td className="py-2.5 font-medium" style={{ color: ADMIN_DARK }}>{l.name}</td>
-                  <td className="py-2.5 text-gray-500">{l.neighborhood}</td>
-                  <td className="py-2.5 text-gray-500">{l.room_type}</td>
-                  <td className="py-2.5 text-right tabular-nums text-gray-600">{eur0(l.price)}</td>
-                  <td className="py-2.5 text-right tabular-nums text-gray-600">{l.occupancy}%</td>
-                  <td className="py-2.5 text-right font-semibold tabular-nums" style={{ color: ACCENT }}>{eur0(l.est_revenue)}</td>
-                  <td className="py-2.5 text-right tabular-nums text-gray-600">★ {l.rating}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </AdminShell>
-  )
-}
-
-/* ---------------------------------- Page ----------------------------------- */
 
 export default function RealEstateDashboard() {
-  const { t, locale } = useLocale()
+  const { locale } = useLocale()
   const m = labels[locale]
   const [data, setData] = useState<RealEstate | null>(null)
-  const [error, setError] = useState(false)
-  const [view, setView] = useState<DashView>("minimal")
+  const [metric, setMetric] = useState<Metric>("est_revenue")
 
   useEffect(() => {
     fetch("/data/real_estate.json")
-      .then((res) => {
-        if (!res.ok) throw new Error("fetch failed")
-        return res.json()
-      })
-      .then((json: RealEstate) => setData(json))
-      .catch(() => setError(true))
+      .then((r) => r.json())
+      .then(setData)
+      .catch(() => {})
   }, [])
 
+  const d = useMemo(() => {
+    if (!data) return null
+    const t = data.totals
+
+    const kpis = [
+      { key: "listings", Icon: Building2, label: m.kpis.listings, value: nf.format(t.listings), sub: m.kpiSub.listings(t.neighborhoods) },
+      { key: "price", Icon: Tag, label: m.kpis.price, value: eur0(t.avg_price), sub: m.kpiSub.price },
+      { key: "occ", Icon: Percent, label: m.kpis.occ, value: t.avg_occupancy + "%", sub: m.kpiSub.occ },
+      { key: "revenue", Icon: Coins, label: m.kpis.revenue, value: eurCompact(t.est_monthly_revenue), sub: m.kpiSub.revenue },
+    ]
+
+    const totalRoomListings = data.by_room_type.reduce((s, r) => s + r.listings, 0)
+    const roomMix = data.by_room_type.map((r) => ({ ...r, share: totalRoomListings > 0 ? (r.listings / totalRoomListings) * 100 : 0 }))
+
+    const roomTypes = Array.from(new Set(data.scatter.map((s) => s.room_type)))
+
+    return { kpis, roomMix, roomTypes, t }
+  }, [data, m])
+
+  const sortedAreas = useMemo(() => {
+    if (!data) return []
+    return [...data.by_neighborhood].sort((a, b) => b[metric] - a[metric])
+  }, [data, metric])
+
+  const navItems = [
+    { Icon: LayoutDashboard, label: m.nav.dashboard, active: true },
+    { Icon: Home, label: m.nav.listings },
+    { Icon: MapPin, label: m.nav.areas },
+    { Icon: CalendarDays, label: m.nav.calendar },
+    { Icon: MessageSquare, label: m.nav.reviews },
+    { Icon: Settings2, label: m.nav.settings },
+  ]
+
   return (
-    <>
-      <nav className="fixed top-0 left-0 right-0 flex justify-between items-center px-8 py-5 border-b border-white/5 bg-[#0A0A0A]/80 backdrop-blur-sm z-50">
-        <Link href="/" className="font-mono text-sm text-[#00C4B0]">mv.dev</Link>
-        <div className="flex gap-6 items-center text-sm text-white/50">
-          <Link href="/about" className="hover:text-white transition-colors">{t.nav.about}</Link>
-          <Link href="/projects" className="text-white">{t.nav.projects}</Link>
-          <a href="mailto:veramanuelvlc@gmail.com" className="hover:text-white transition-colors">{t.nav.contact}</a>
-          {data && <ViewToggle view={view} setView={setView} theme="dark" accent={ACCENT} minimalLabel={m.viewMinimal} adminLabel={m.viewAdmin} />}
-          <LocaleToggle />
+    <div className="min-h-screen flex bg-[#0a0a0a] text-white" style={{ fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif" }}>
+      {/* Sidebar */}
+      <aside className="w-60 shrink-0 border-r border-white/[0.06] hidden md:flex flex-col p-3 sticky top-0 self-start h-screen">
+        <button className="flex items-center gap-2 rounded-lg px-2 py-2 hover:bg-white/[0.04] transition-colors">
+          <span className="flex h-6 w-6 items-center justify-center rounded-md bg-white/[0.06] text-xs font-bold" style={{ color: ACCENT }}>mv</span>
+          <span className="flex items-center gap-1.5 text-sm font-medium">
+            <span className="h-2 w-2 rounded-full bg-emerald-400" /> mv.dev
+          </span>
+          <ChevronsUpDown size={14} className="ml-auto text-white/30" />
+        </button>
+
+        <div className="relative mt-3">
+          <Search size={15} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-white/30" />
+          <input
+            placeholder={m.search}
+            className="w-full rounded-lg bg-white/[0.04] border border-white/[0.06] pl-8 pr-10 py-2 text-sm text-white/70 placeholder:text-white/30 outline-none"
+          />
+          <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] text-white/30 font-mono border border-white/10 rounded px-1">⌘K</span>
         </div>
-      </nav>
 
-      {!data && !error && <div className="min-h-screen pt-36 text-center font-mono text-sm text-white/30">{m.loading}</div>}
-      {error && <div className="min-h-screen pt-36 text-center font-mono text-sm text-red-400/70">{m.error}</div>}
+        <nav className="mt-4 flex flex-col gap-0.5">
+          {navItems.map(({ Icon, label, active }) => (
+            <button
+              key={label}
+              className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors text-left"
+              style={active ? { backgroundColor: "rgba(255,255,255,0.06)", color: "#fff" } : { color: "rgba(255,255,255,0.45)" }}
+            >
+              <Icon size={17} />
+              {label}
+            </button>
+          ))}
+        </nav>
+      </aside>
 
-      {data && (view === "minimal" ? (
-        <MinimalView data={data} m={m} view={view} setView={setView} />
-      ) : (
-        <AdminView data={data} m={m} view={view} setView={setView} />
-      ))}
-    </>
+      {/* Main */}
+      <main className="flex-1 min-w-0">
+        {/* Header */}
+        <header className="flex items-center justify-end gap-3 px-6 h-14 border-b border-white/[0.06]">
+          <button className="relative text-white/50 hover:text-white transition-colors">
+            <Bell size={18} />
+            <span className="absolute -top-1.5 -right-1.5 flex h-4 w-4 items-center justify-center rounded-full text-[9px] font-bold text-black" style={{ backgroundColor: ACCENT }}>3</span>
+          </button>
+          <div className="h-7 w-7 rounded-full bg-gradient-to-br from-[#F59E0B] to-[#7C3AED]" />
+        </header>
+
+        <div className="p-6">
+          {!d && <p className="text-white/30 text-sm py-20 text-center">{m.loading}</p>}
+
+          {d && (
+            <>
+              {/* KPI cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {d.kpis.map(({ key, Icon, label, value, sub }) => (
+                  <div key={key} className="rounded-xl border border-white/[0.06] bg-[#121212] p-5">
+                    <div className="flex items-center justify-between text-white/45 mb-4">
+                      <span className="flex items-center gap-2 text-xs"><Icon size={15} /> {label}</span>
+                      <MoreHorizontal size={15} />
+                    </div>
+                    <p className="text-2xl font-semibold tabular-nums">{value}</p>
+                    <p className="mt-2 text-xs text-white/35">{sub}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Overview heading */}
+              <div className="flex items-center justify-between mt-8 mb-4">
+                <h2 className="text-lg font-semibold">{m.overview}</h2>
+                <div className="flex items-center gap-2">
+                  <button className="flex items-center gap-1.5 rounded-lg border border-white/[0.08] px-3 py-1.5 text-xs text-white/60 hover:text-white transition-colors">
+                    <Settings2 size={14} /> {m.customize}
+                  </button>
+                  <button className="rounded-lg border border-white/[0.08] p-1.5 text-white/50 hover:text-white transition-colors">
+                    <MoreHorizontal size={15} />
+                  </button>
+                </div>
+              </div>
+
+              <div className="grid lg:grid-cols-3 gap-4">
+                {/* By area */}
+                <div className="lg:col-span-2 rounded-xl border border-white/[0.06] bg-[#121212] p-5">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="flex items-center gap-2 text-white/45 text-xs"><MapPin size={14} /> {m.byArea}</span>
+                    <div className="flex gap-1.5">
+                      {(["est_revenue", "avg_price", "occupancy", "listings"] as Metric[]).map((k) => (
+                        <button
+                          key={k}
+                          onClick={() => setMetric(k)}
+                          className="text-[11px] px-2.5 py-1 rounded-full border transition-colors"
+                          style={metric === k ? { borderColor: ACCENT + "60", color: ACCENT, backgroundColor: ACCENT + "12" } : { borderColor: "rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.4)" }}
+                        >
+                          {m.metrics[k]}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  <div style={{ height: sortedAreas.length * 38 + 16 }} className="w-full">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <BarChart layout="vertical" data={sortedAreas} margin={{ top: 0, right: 12, bottom: 0, left: 8 }}>
+                        <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" horizontal={false} />
+                        <XAxis type="number" tick={{ fill: "rgba(255,255,255,0.3)", fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v: number) => fmtMetric(metric, v)} />
+                        <YAxis type="category" dataKey="neighborhood" tick={{ fill: "rgba(255,255,255,0.5)", fontSize: 11 }} tickLine={false} axisLine={false} width={84} />
+                        <Tooltip content={<AreaTooltip metric={metric} m={m} />} cursor={{ fill: "rgba(255,255,255,0.03)" }} />
+                        <Bar dataKey={metric} radius={[0, 4, 4, 0]} barSize={16}>
+                          {sortedAreas.map((_, i) => (
+                            <Cell key={i} fill={i === 0 ? ACCENT : "rgba(245,158,11,0.35)"} />
+                          ))}
+                        </Bar>
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </div>
+                </div>
+
+                {/* Right column */}
+                <div className="flex flex-col gap-4">
+                  {/* Room mix */}
+                  <div className="rounded-xl border border-white/[0.06] bg-[#121212] p-5">
+                    <div className="flex items-center justify-between text-white/45 text-xs mb-4">
+                      <span className="flex items-center gap-2"><Home size={14} /> {m.roomMix}</span>
+                      <Maximize2 size={14} />
+                    </div>
+                    <div className="flex h-2.5 w-full overflow-hidden rounded-full">
+                      {d.roomMix.map((r) => (
+                        <div key={r.room_type} style={{ width: `${r.share}%`, backgroundColor: ROOM_COLORS[r.room_type] ?? ACCENT }} />
+                      ))}
+                    </div>
+                    <div className="mt-4 flex flex-col gap-2.5">
+                      {d.roomMix.map((r) => (
+                        <div key={r.room_type} className="flex items-center gap-2 text-xs">
+                          <span className="h-2 w-2 rounded-full" style={{ backgroundColor: ROOM_COLORS[r.room_type] ?? ACCENT }} />
+                          <span className="text-white/55">{r.room_type}</span>
+                          <span className="ml-auto tabular-nums text-white/40">{nf.format(r.listings)}</span>
+                          <span className="tabular-nums text-white/70 w-9 text-right">{r.share.toFixed(0)}%</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Quality */}
+                  <div className="rounded-xl border border-white/[0.06] bg-[#121212] p-5">
+                    <div className="flex items-center justify-between text-white/45 text-xs mb-4">
+                      <span className="flex items-center gap-2"><Star size={14} /> {m.quality}</span>
+                      <Maximize2 size={14} />
+                    </div>
+                    <div className="flex items-end justify-between mb-4">
+                      <div>
+                        <p className="text-[11px] text-white/40">{m.ratingLbl}</p>
+                        <p className="text-xl font-semibold tabular-nums mt-0.5" style={{ color: ACCENT }}>★ {d.t.avg_rating}</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-[11px] text-white/40">{m.superhosts}</p>
+                        <p className="text-xl font-semibold tabular-nums mt-0.5 text-white/70">{d.t.superhost_rate}%</p>
+                      </div>
+                    </div>
+                    <div className="relative h-2.5 rounded-full bg-white/[0.06] overflow-hidden">
+                      <div className="absolute inset-y-0 left-0 rounded-full" style={{ width: `${d.t.superhost_rate}%`, backgroundColor: ACCENT }} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Price vs occupancy scatter */}
+              <div className="mt-4 rounded-xl border border-white/[0.06] bg-[#121212] p-5">
+                <div className="flex items-center justify-between text-white/45 text-xs mb-4">
+                  <span className="flex items-center gap-2"><Percent size={14} /> {m.scatter}</span>
+                  <Maximize2 size={14} />
+                </div>
+                <div className="h-72 w-full">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <ScatterChart margin={{ top: 8, right: 12, bottom: 16, left: -4 }}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
+                      <XAxis type="number" dataKey="price" name="price" unit="€" tick={{ fill: "rgba(255,255,255,0.3)", fontSize: 10 }} tickLine={false} axisLine={{ stroke: "rgba(255,255,255,0.08)" }} label={{ value: m.scatterX, position: "insideBottom", offset: -8, fill: "rgba(255,255,255,0.3)", fontSize: 11 }} />
+                      <YAxis type="number" dataKey="occupancy" name="occupancy" unit="%" tick={{ fill: "rgba(255,255,255,0.3)", fontSize: 10 }} tickLine={false} axisLine={false} width={48} />
+                      <ZAxis range={[36, 36]} />
+                      <Tooltip content={<ScatterTooltip />} cursor={{ strokeDasharray: "3 3", stroke: "rgba(255,255,255,0.1)" }} />
+                      <Legend wrapperStyle={{ fontSize: 12 }} iconType="circle" />
+                      {d.roomTypes.map((rt) => (
+                        <Scatter key={rt} name={rt} data={data!.scatter.filter((s) => s.room_type === rt)} fill={ROOM_COLORS[rt] ?? ACCENT} fillOpacity={0.6} />
+                      ))}
+                    </ScatterChart>
+                  </ResponsiveContainer>
+                </div>
+              </div>
+
+              {/* Top listings */}
+              <div className="mt-4 rounded-xl border border-white/[0.06] bg-[#121212] p-5">
+                <div className="flex items-center justify-between text-white/45 text-xs mb-4">
+                  <span className="flex items-center gap-2"><Building2 size={14} /> {m.topListings}</span>
+                  <MoreHorizontal size={15} />
+                </div>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="text-left border-b border-white/[0.06]">
+                        <th className="text-xs text-white/30 font-normal py-2.5">{m.cols.listing}</th>
+                        <th className="text-xs text-white/30 font-normal py-2.5">{m.cols.zone}</th>
+                        <th className="text-xs text-white/30 font-normal py-2.5">{m.cols.room}</th>
+                        <th className="text-xs text-white/30 font-normal py-2.5 text-right">{m.cols.price}</th>
+                        <th className="text-xs text-white/30 font-normal py-2.5 text-right">{m.cols.occ}</th>
+                        <th className="text-xs text-white/30 font-normal py-2.5 text-right">{m.cols.revenue}</th>
+                        <th className="text-xs text-white/30 font-normal py-2.5 text-right">{m.cols.rating}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {data!.top_listings.map((l, i) => (
+                        <tr key={l.name + i} className="border-b border-white/[0.04] last:border-0 hover:bg-white/[0.02] transition-colors">
+                          <td className="py-2.5 text-white/80">{l.name}</td>
+                          <td className="py-2.5 text-white/40">{l.neighborhood}</td>
+                          <td className="py-2.5 text-white/40">{l.room_type}</td>
+                          <td className="py-2.5 text-right tabular-nums text-white/70">{eur0(l.price)}</td>
+                          <td className="py-2.5 text-right tabular-nums text-white/70">{l.occupancy}%</td>
+                          <td className="py-2.5 text-right tabular-nums font-medium" style={{ color: ACCENT }}>{eur0(l.est_revenue)}</td>
+                          <td className="py-2.5 text-right tabular-nums text-white/70">★ {l.rating}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </>
+          )}
+        </div>
+      </main>
+
+      {/* Floating back */}
+      <Link
+        href="/projects"
+        className="fixed bottom-4 right-4 z-50 flex items-center gap-1.5 rounded-full border border-white/10 bg-[#161616]/95 px-3.5 py-2 text-xs font-medium text-white/60 shadow-lg backdrop-blur hover:text-white transition-colors"
+      >
+        <ArrowLeft size={14} /> {m.back}
+      </Link>
+    </div>
   )
 }
