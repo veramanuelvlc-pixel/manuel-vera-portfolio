@@ -15,10 +15,10 @@ export const content = {
       cta_about: "Sobre mí",
     },
     stats: [
-      { value: "8+", label: "clientes activos" },
-      { value: "5", label: "dashboards" },
-      { value: "3", label: "APIs integradas" },
-      { value: "80%", label: "menos tiempo en reportes" },
+      { value: "5", label: "dashboards en producción" },
+      { value: "4", label: "APIs reales integradas" },
+      { value: "4h → 45min", label: "tiempo de reporte semanal" },
+      { value: "2", label: "idiomas (ES/EN)" },
     ],
     home: {
       nav_home: "Inicio",
@@ -94,10 +94,10 @@ export const content = {
       cta_about: "About me",
     },
     stats: [
-      { value: "8+", label: "active clients" },
-      { value: "5", label: "dashboards" },
-      { value: "3", label: "APIs integrated" },
-      { value: "80%", label: "less time on reports" },
+      { value: "5", label: "dashboards in production" },
+      { value: "4", label: "real APIs integrated" },
+      { value: "4h → 45min", label: "weekly reporting time" },
+      { value: "2", label: "languages (ES/EN)" },
     ],
     home: {
       nav_home: "Home",

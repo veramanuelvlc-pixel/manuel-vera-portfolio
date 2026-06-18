@@ -165,8 +165,14 @@ export default function Home() {
         <section className="mx-auto w-full max-w-5xl px-8 pt-10 pb-24">
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {t.stats.map((s) => (
-              <div key={s.label} className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 text-center">
-                <div className="mb-1 text-3xl font-bold text-white">{s.value}</div>
+              <div key={s.label} className="flex flex-col rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 text-center">
+                <div
+                  className={`mb-1 flex min-h-[2.25rem] items-center justify-center whitespace-nowrap font-bold text-white ${
+                    s.value.length > 4 ? "text-base sm:text-xl md:text-2xl" : "text-3xl"
+                  }`}
+                >
+                  {s.value}
+                </div>
                 <div className="text-xs uppercase tracking-wide text-slate-400">{s.label}</div>
               </div>
             ))}
