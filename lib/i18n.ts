@@ -15,10 +15,10 @@ export const content = {
       cta_about: "Sobre mí",
     },
     stats: [
-      { value: "5", label: "dashboards en producción" },
-      { value: "4", label: "APIs reales integradas" },
-      { value: "4h → 45min", label: "tiempo de reporte semanal" },
-      { value: "2", label: "idiomas (ES/EN)" },
+      "Dashboards a tu medida",
+      "Datos en tiempo real",
+      "Insights generados por AI",
+      "Adaptado a tu negocio",
     ],
     home: {
       nav_home: "Inicio",
@@ -94,10 +94,10 @@ export const content = {
       cta_about: "About me",
     },
     stats: [
-      { value: "5", label: "dashboards in production" },
-      { value: "4", label: "real APIs integrated" },
-      { value: "4h → 45min", label: "weekly reporting time" },
-      { value: "2", label: "languages (ES/EN)" },
+      "Dashboards built for you",
+      "Real-time data sync",
+      "AI-generated insights",
+      "Tailored to your business",
     ],
     home: {
       nav_home: "Home",
