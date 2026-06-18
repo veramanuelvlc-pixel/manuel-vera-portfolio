@@ -20,6 +20,16 @@ export const content = {
       { value: "3", label: "APIs integradas" },
       { value: "80%", label: "menos tiempo en reportes" },
     ],
+    home: {
+      nav_home: "Inicio",
+      gallery_label: "Proyectos destacados",
+      gallery_caption: "Dashboards en vivo con datos de Meta Ads, e-commerce, email y real estate.",
+      cta_title: "Hablemos de tu próximo proyecto de datos.",
+      cta_desc: "Agenda una llamada o escríbeme. Te muestro cómo automatizar tus reportes y construir dashboards que tu equipo de verdad use.",
+      cta_contact: "Contacto",
+      cta_projects: "Ver proyectos",
+      rights: "Todos los derechos reservados.",
+    },
     about: {
       title: "Sobre mí",
       bio: "Analista de datos de marketing con experiencia construyendo sistemas de reportes automatizados, dashboards en tiempo real e integraciones con AI. Trabajo con agencias y startups conectando Meta Ads, Klaviyo y Shopify con stacks modernos de datos.",
@@ -84,6 +94,16 @@ export const content = {
       { value: "3", label: "APIs integrated" },
       { value: "80%", label: "less time on reports" },
     ],
+    home: {
+      nav_home: "Home",
+      gallery_label: "Featured work",
+      gallery_caption: "Live dashboards with Meta Ads, e-commerce, email and real estate data.",
+      cta_title: "Let's talk about your next data project.",
+      cta_desc: "Book a call or drop me a line. I'll show you how to automate your reporting and build dashboards your team actually uses.",
+      cta_contact: "Get in touch",
+      cta_projects: "View projects",
+      rights: "All rights reserved.",
+    },
     about: {
       title: "About me",
       bio: "Marketing data analyst with experience building automated reporting systems, real-time dashboards and AI integrations. I work with agencies and startups connecting Meta Ads, Klaviyo and Shopify with modern data stacks.",
