@@ -39,6 +39,45 @@ body {
   border-radius: 3px;
 }
 
+/* Cinematic hero — liquid-glass button (from the Stitch export). The ::before
+   paints a 1px gradient border via a mask; pointer-events:none keeps it inert. */
+.liquid-glass-strong {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+  border-radius: 9999px;
+  overflow: hidden;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.liquid-glass-strong::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px; /* border thickness */
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.liquid-glass-strong:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .liquid-glass-strong {
+    transition: none;
+  }
+  .liquid-glass-strong:hover {
+    transform: none;
+  }
+}
+
 /* shadcn / efferd theme tokens (neutral base). The portfolio's own pages use raw
    hex colors and are unaffected; these power the efferd dashboard blocks. */
 @custom-variant dark (&:is(.dark *));
