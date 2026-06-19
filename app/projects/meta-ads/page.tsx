@@ -14,6 +14,7 @@ import {
 import { useLocale } from "@/lib/locale-context"
 import { ThemeProvider, useTheme } from "@/lib/theme-context"
 import { DashTopNav } from "@/components/dashboard/dash-top-nav"
+import { MetaAdsKpiCards } from "@/components/meta-ads-kpi-cards"
 
 type Day = { date: string; spend: number; impressions: number; clicks: number; leads: number; revenue: number; ctr: number }
 type Campaign = { campaign_name: string; spend: number }
@@ -233,26 +234,7 @@ function MetaAdsInner() {
         {d && (
           <>
             {/* KPI cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {d.kpis.map(({ key, Icon, label, value, delta }) => {
-                const up = delta >= 0
-                return (
-                  <div key={key} className="rounded-xl border border-[var(--line)] bg-[var(--panel)] p-5">
-                    <div className="flex items-center gap-2 text-[var(--txt3)] text-xs mb-4">
-                      <Icon size={15} /> {label}
-                    </div>
-                    <p className="text-2xl font-semibold tabular-nums">{value}</p>
-                    <p className="mt-2 flex items-center gap-1 text-xs">
-                      <span className={`flex items-center gap-0.5 ${up ? "text-emerald-500" : "text-red-500"}`}>
-                        {up ? <ArrowUp size={12} /> : <ArrowDown size={12} />}
-                        {pctSigned(delta)}
-                      </span>
-                      <span className="text-[var(--txt4)]">{m.sinceLast}</span>
-                    </p>
-                  </div>
-                )
-              })}
-            </div>
+            <MetaAdsKpiCards kpis={d.kpis.map((k) => ({ ...k, deltaLabel: m.sinceLast }))} />
 
             {/* Today heading */}
             <h2 className="text-lg font-semibold mt-8 mb-4">{m.today}</h2>

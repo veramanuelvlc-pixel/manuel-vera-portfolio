@@ -6,6 +6,7 @@ import { useLocale } from "@/lib/locale-context"
 import { LocaleToggle } from "@/components/sections/locale-toggle"
 import { barlow, instrumentSerif } from "@/lib/fonts"
 import { BrandIcon } from "@/components/brand-icons"
+import { DashboardPreview } from "@/components/dashboard-preview"
 
 const ACCENT = "#00C4B0"
 const MAIL = "mailto:veramanuelvlc@gmail.com"
@@ -161,21 +162,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Metrics */}
-        <section className="mx-auto w-full max-w-5xl px-8 pt-10 pb-24">
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-            {t.stats.map((s) => (
-              <div
-                key={s}
-                className="flex min-h-[5.5rem] items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-6 text-center"
-              >
-                <span className="text-sm font-medium leading-snug text-balance text-[#00C4B0] md:text-base">
-                  {s}
-                </span>
-              </div>
-            ))}
-          </div>
-        </section>
+        {/* Dashboard preview */}
+        <DashboardPreview labels={h.preview} />
 
         {/* Closing CTA */}
         <section className="relative mt-auto w-full overflow-hidden bg-black">
