@@ -2,7 +2,7 @@
 
 :root {
   --font-inter: "Inter", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  --font-mono: "JetBrains Mono", monospace; /* dashboards only — taste-skill-ignore */
 }
 
 /* NOTE: do not add an unlayered `* { margin:0; padding:0 }` reset here.
@@ -21,60 +21,149 @@ body {
 }
 
 ::selection {
-  background-color: #00C4B0;
-  color: #0A0A0A;
+  background-color: #38450f;
+  color: #ecebe7;
 }
 
-::-webkit-scrollbar {
-  width: 6px;
+/* ── Marketing pages (home, about, projects index) ─────────────────────────
+   "Olive on bone": one ground, one ink, one filled field. Everything in these
+   pages reads tokens from here; the dashboards keep the shadcn tokens below. */
+.mv {
+  --bg: #ecebe7;
+  --surface: #e1dfd9;
+  --paper: #f4f4f2;
+  --ink: #38450f;
+  --muted: #5d683a;
+  --field: #38450f;
+  --field-ink: #ecebe7;
+
+  --step-small: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
+  --step-body: clamp(1.125rem, 1.05rem + 0.3vw, 1.3125rem);
+  --step-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+  --step-head: clamp(2rem, 1.3rem + 3.2vw, 4rem);
+  --step-display: clamp(3.5rem, 1rem + 11vw, 15rem);
+
+  --gutter: clamp(16px, 2.2vw, 32px);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
+
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-zilla), Georgia, serif;
+  font-size: var(--step-body);
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
 }
 
-::-webkit-scrollbar-track {
-  background: #0A0A0A;
+.mv h1,
+.mv h2,
+.mv h3 {
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  text-wrap: balance;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #00C4B0;
-  border-radius: 3px;
+.mv p {
+  text-wrap: pretty;
 }
 
-/* Cinematic hero — liquid-glass button (from the Stitch export). The ::before
-   paints a 1px gradient border via a mask; pointer-events:none keeps it inert. */
-.liquid-glass-strong {
-  position: relative;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(50px);
-  -webkit-backdrop-filter: blur(50px);
-  border-radius: 9999px;
-  overflow: hidden;
-  transition: background 0.3s ease, transform 0.3s ease;
+.mv :focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
 }
 
-.liquid-glass-strong::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: 1px; /* border thickness */
-  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
+/* One button: square, filled, ink. Gives on press. */
+.mv-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  min-height: 52px;
+  padding: 0 28px;
+  background: var(--ink);
+  color: var(--field-ink);
+  font-weight: 500;
+  transition: transform 140ms var(--ease-out), background-color 180ms ease;
+}
+.mv-btn:hover { background: #2a340b; }
+.mv-btn:active { transform: scale(0.97); }
+
+.mv-link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: text-underline-offset 180ms var(--ease-out), color 180ms ease;
+}
+.mv-link:hover { text-underline-offset: 0.35em; }
+
+/* Section entrances. Hidden state only applies once JS has marked <html>,
+   so content is never stuck invisible without script. */
+html.js .mv [data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 800ms var(--ease-out), transform 800ms var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 80ms);
+}
+html.js .mv [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
 }
 
-.liquid-glass-strong:hover {
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateY(-1px);
+/* Data stripe: bars grow from the baseline on load. */
+html.js .mv .stripe-bar {
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 900ms var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 8ms);
+}
+html.js .mv .stripe.is-in .stripe-bar { transform: scaleY(1); }
+
+/* Stage crossfade: the fixed half changes like light shifting in a room. */
+.stage-layer {
+  transition: opacity 1000ms var(--ease-soft), transform 6000ms var(--ease-soft);
+}
+
+/* Quick swap for the pipeline slider and stage fragments. */
+@keyframes mv-fade { from { opacity: 0; } to { opacity: 1; } }
+.mv-fade { animation: mv-fade 200ms ease both; }
+
+/* Pipeline range: solid 8px track, passed part in ink, square accent thumb. */
+.mv-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 32px;
+  background: transparent;
+  cursor: pointer;
+}
+/* The track itself is drawn by two filled blocks behind the input. */
+.mv-range::-webkit-slider-runnable-track { height: 8px; background: transparent; }
+.mv-range::-moz-range-track { height: 8px; background: transparent; }
+.mv-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 32px;
+  height: 32px;
+  margin-top: -12px;
+  background: var(--ink);
+  border: 0;
+  transition: transform 140ms var(--ease-out);
+}
+.mv-range::-moz-range-thumb { width: 32px; height: 32px; background: var(--ink); border: 0; border-radius: 0; }
+.mv-range:active::-webkit-slider-thumb { transform: scale(1.12); }
+@media (pointer: coarse) {
+  .mv-range::-webkit-slider-thumb { width: 40px; height: 40px; margin-top: -16px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .liquid-glass-strong {
+  .mv-fade { animation: none; }
+  html.js .mv [data-reveal],
+  html.js .mv .stripe-bar {
+    opacity: 1;
+    transform: none;
     transition: none;
   }
-  .liquid-glass-strong:hover {
-    transform: none;
-  }
+  .stage-layer { transition: none; }
+  .mv-btn, .mv-link { transition: none; }
 }
 
 /* shadcn / efferd theme tokens (neutral base). The portfolio's own pages use raw
@@ -189,4 +278,10 @@ body {
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+}
+
+/* Phone stage: the fixed half becomes a 52svh window, so each fragment shows
+   its KPIs and first chart only. */
+@media (max-width: 1023px) {
+  .stage-layer [data-ui] > :nth-child(n + 4) { display: none; }
 }

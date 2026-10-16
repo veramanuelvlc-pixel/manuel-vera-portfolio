@@ -1,4 +1,4 @@
-import { Inter, JetBrains_Mono, Barlow, Instrument_Serif } from "next/font/google"
+import { Inter, JetBrains_Mono, Zilla_Slab } from "next/font/google"
 
 export const inter = Inter({
   subsets: ["latin"],
@@ -10,17 +10,11 @@ export const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
 })
 
-// Used only by the redesigned home page (Stitch layout). Scoped via their CSS
-// variables so the rest of the site keeps Inter.
-export const barlow = Barlow({
+// The marketing pages (home, about, projects index) are set entirely in Zilla
+// Slab; the dashboards keep Inter. Scoped via the `.mv` root class.
+export const zilla = Zilla_Slab({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  variable: "--font-barlow",
-})
-
-export const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "500", "600"],
   style: ["normal", "italic"],
-  variable: "--font-serif",
+  variable: "--font-zilla",
 })

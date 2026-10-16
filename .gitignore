@@ -43,3 +43,7 @@ public/data/*_raw.csv
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# taste-skill inspector output
+.taste-skill/
+.playwright-cli/
