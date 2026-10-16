@@ -43,7 +43,7 @@ export const projects: Project[] = [
       es: "Un año de pedidos: revenue mensual, ticket medio, LTV por cohorte, churn y el funnel desde la sesión hasta la compra.",
       en: "A year of orders: monthly revenue, average order value, LTV by cohort, churn and the funnel from session to purchase.",
     },
-    stack: "Python, pandas, Recharts, Supabase",
+    stack: "Python, pandas, Recharts, Next.js",
   },
   {
     slug: "email-marketing",
@@ -73,7 +73,7 @@ export const projects: Project[] = [
       es: "Precio medio, ocupación y revenue estimado de 2.200 anuncios en ocho barrios, con la relación precio contra ocupación.",
       en: "Average price, occupancy and estimated revenue for 2,200 listings across eight areas, with price plotted against occupancy.",
     },
-    stack: "Python, Recharts, Supabase",
+    stack: "Python, Recharts, Next.js",
   },
   {
     slug: "ai-report",

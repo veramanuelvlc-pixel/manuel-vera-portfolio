@@ -67,7 +67,7 @@ export const content = {
     letter: {
       heading: "Sobre mí",
       paragraphs: [
-        "Soy Manuel Vera, analista de datos de marketing en Cochabamba, Bolivia. Desde noviembre de 2024 trabajo en Engage Medida Solutions, donde mi trabajo es que nadie tenga que armar un reporte a mano.",
+        "Soy Manuel Vera, analista de datos de marketing en Cochabamba, Bolivia. Desde noviembre de 2024 trabajo en Engage Media Solutions, donde mi trabajo es que nadie tenga que armar un reporte a mano.",
         "Automaticé el reporte semanal de Meta Ads con Python, pandas y ReportLab para más de ocho clientes, y el tiempo que se le dedica bajó un 80%. Construí dashboards en Next.js que unen Meta Ads, Klaviyo y Shopify para clientes de legal, fintech y e-commerce.",
         "Para The Founders Law armé un sistema que clasifica y atribuye más de 1.000 leads por semana, cruzando Meta Ads con su CRM en GoHighLevel. Y conecté la API de Claude para que los números lleguen explicados en lenguaje natural.",
         "Antes pasé dos años y medio en la Compañía Boliviana de Tickets y Controles, analizando ventas y clientes con Power BI y Tableau. Estudié Ingeniería Financiera en la Universidad Católica San Pablo.",
@@ -120,7 +120,7 @@ export const content = {
       jobs: [
         {
           role: "Marketing Data Analyst",
-          company: "Engage Medida Solutions",
+          company: "Engage Media Solutions",
           period: "Nov 2024 a hoy",
           bullets: [
             "Automaticé reportes semanales de Meta Ads con Python (ReportLab y pandas) para 8+ clientes, reduciendo el tiempo de reporte manual en 80%.",
@@ -214,7 +214,7 @@ export const content = {
     letter: {
       heading: "About me",
       paragraphs: [
-        "I'm Manuel Vera, a marketing data analyst based in Cochabamba, Bolivia. Since November 2024 I've worked at Engage Medida Solutions, where my job is making sure nobody builds a report by hand.",
+        "I'm Manuel Vera, a marketing data analyst based in Cochabamba, Bolivia. Since November 2024 I've worked at Engage Media Solutions, where my job is making sure nobody builds a report by hand.",
         "I automated the weekly Meta Ads report with Python, pandas and ReportLab for more than eight clients, and the time it takes dropped by 80%. I built Next.js dashboards that join Meta Ads, Klaviyo and Shopify for clients in legal, fintech and e-commerce.",
         "For The Founders Law I built a system that classifies and attributes more than 1,000 leads a week, matching Meta Ads against their GoHighLevel CRM. And I wired in the Claude API so the numbers arrive explained in plain language.",
         "Before that I spent two and a half years at Compañía Boliviana de Tickets y Controles, analysing sales and customers with Power BI and Tableau. I studied Financial Engineering at Universidad Católica San Pablo.",
@@ -267,7 +267,7 @@ export const content = {
       jobs: [
         {
           role: "Marketing Data Analyst",
-          company: "Engage Medida Solutions",
+          company: "Engage Media Solutions",
           period: "Nov 2024 to now",
           bullets: [
             "Automated weekly Meta Ads reports with Python (ReportLab and pandas) for 8+ clients, cutting manual reporting time by 80%.",
