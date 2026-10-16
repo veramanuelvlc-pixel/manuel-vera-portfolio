@@ -22,7 +22,7 @@ export function SiteFooter() {
         </nav>
         <div data-reveal style={{ "--i": 1 } as React.CSSProperties} className="flex flex-col gap-1.5 sm:items-end">
           <a href={`mailto:${contact.email}`} className="mv-link w-fit">{contact.email}</a>
-          <a href={contact.whatsapp} target="_blank" rel="noopener noreferrer" className="mv-link w-fit">WhatsApp</a>
+          <a href={contact.whatsappWith(t.hero.mailSubject)} target="_blank" rel="noopener noreferrer" className="mv-link w-fit">WhatsApp</a>
           <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" className="mv-link w-fit">LinkedIn</a>
           <a href={contact.github} target="_blank" rel="noopener noreferrer" className="mv-link w-fit">GitHub</a>
         </div>

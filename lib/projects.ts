@@ -1,6 +1,6 @@
 import type { Locale } from "./i18n"
 
-export type ProjectSlug = "meta-ads" | "ecommerce" | "email-marketing" | "real-estate" | "ai-report"
+export type ProjectSlug = "meta-ads" | "ecommerce" | "email-marketing" | "real-estate"
 
 type Text = Record<Locale, string>
 
@@ -74,20 +74,5 @@ export const projects: Project[] = [
       en: "Average price, occupancy and estimated revenue for 2,200 listings across eight areas, with price plotted against occupancy.",
     },
     stack: "Python, Recharts, Next.js",
-  },
-  {
-    slug: "ai-report",
-    title: "AI Report Generator",
-    kind: { es: "CSV a informe con Claude", en: "CSV to report with Claude" },
-    scale: { es: "Claude API", en: "Claude API" },
-    question: {
-      es: "¿Puede un CSV de campañas convertirse en un informe que un cliente lea?",
-      en: "Can a campaign CSV become a report a client will actually read?",
-    },
-    description: {
-      es: "Subes un CSV de campañas y la API de Claude devuelve el análisis y las recomendaciones en lenguaje natural.",
-      en: "Upload a campaign CSV and the Claude API returns the analysis and recommendations in plain language.",
-    },
-    stack: "Claude API, Next.js, Python",
   },
 ]

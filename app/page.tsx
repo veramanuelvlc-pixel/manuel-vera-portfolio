@@ -60,9 +60,19 @@ export default function Home() {
               <p data-reveal style={{ "--i": 2 } as React.CSSProperties} className="mt-6 max-w-[38ch]">
                 {t.hero.sentence}
               </p>
-              <a data-reveal style={{ "--i": 3 } as React.CSSProperties} href={mail} className="mv-btn mt-9">
-                {t.hero.action}
-              </a>
+              <div data-reveal style={{ "--i": 3 } as React.CSSProperties} className="mt-9 flex flex-wrap justify-center gap-3">
+                <a href={mail} className="mv-btn">
+                  {t.hero.action}
+                </a>
+                <a
+                  href={contact.whatsappWith(t.hero.mailSubject)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mv-btn mv-btn-alt"
+                >
+                  {t.hero.whatsappAction}
+                </a>
+              </div>
             </div>
 
             <nav className="flex flex-wrap justify-center gap-x-7 gap-y-2 px-[var(--gutter)] pb-7 text-[length:var(--step-small)] sm:text-base">
@@ -209,7 +219,7 @@ export default function Home() {
             <dt className="text-[var(--muted)]">{t.contactBlock.email}</dt>
             <dd><a href={`mailto:${contact.email}`} className="mv-link">{contact.email}</a></dd>
             <dt className="text-[var(--muted)]">{t.contactBlock.whatsapp}</dt>
-            <dd><a href={contact.whatsapp} target="_blank" rel="noopener noreferrer" className="mv-link">{contact.whatsappLabel}</a></dd>
+            <dd><a href={contact.whatsappWith(t.hero.mailSubject)} target="_blank" rel="noopener noreferrer" className="mv-link">{contact.whatsappLabel}</a></dd>
             <dt className="text-[var(--muted)]">{t.contactBlock.location}</dt>
             <dd>{t.contactBlock.locationValue}</dd>
             <dt className="text-[var(--muted)]">{t.contactBlock.languages}</dt>

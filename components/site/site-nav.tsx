@@ -23,6 +23,14 @@ export function SiteNav({ current }: { current?: "about" | "projects" }) {
         <button type="button" onClick={toggle} className={link(false)} lang={locale === "es" ? "en" : "es"}>
           {locale === "es" ? "English" : "Español"}
         </button>
+        <a
+          href={contact.whatsappWith(t.hero.mailSubject)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={link(false)}
+        >
+          {t.nav.whatsapp}
+        </a>
         <a href={`mailto:${contact.email}?subject=${encodeURIComponent(t.hero.mailSubject)}`} className="mv-btn !min-h-[44px] !px-5">
           {t.nav.write}
         </a>

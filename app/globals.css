@@ -88,6 +88,9 @@ body {
 }
 .mv-btn:hover { background: #2a340b; }
 .mv-btn:active { transform: scale(0.97); }
+/* Second action beside the primary one: same shape, quieter field. */
+.mv-btn-alt { background: var(--surface); color: var(--ink); }
+.mv-btn-alt:hover { background: #d5d3cc; }
 
 .mv-link {
   text-decoration: underline;

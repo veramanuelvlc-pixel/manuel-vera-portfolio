@@ -3,7 +3,9 @@ export type Locale = "es" | "en"
 export const contact = {
   email: "veramanuelvlc@gmail.com",
   whatsapp: "https://wa.me/59177442301",
-  whatsappLabel: "+591 774 42301",
+  whatsappLabel: "+591 77442301",
+  /** WhatsApp chat link with the greeting already typed. */
+  whatsappWith: (text: string) => `https://wa.me/59177442301?text=${encodeURIComponent(text)}`,
   linkedin: "https://www.linkedin.com/in/manuel-veraleon",
   github: "https://github.com/veramanuelvlc-pixel",
   cv: { es: "/cv-manuel-vera-es.pdf", en: "/cv-manuel-vera-en.pdf" },
@@ -19,6 +21,7 @@ export const content = {
       contact: "contacto",
       cv: "CV en PDF",
       write: "Escríbeme",
+      whatsapp: "WhatsApp",
       skip: "Saltar al contenido",
       pause: "Pausar la rotación de proyectos",
       play: "Reanudar la rotación de proyectos",
@@ -28,6 +31,7 @@ export const content = {
       sentence:
         "Conecto Meta Ads, Klaviyo y Shopify a dashboards y reportes semanales que se arman solos, con Python, Next.js y la API de Claude.",
       action: "Escríbeme un correo",
+      whatsappAction: "Escríbeme por WhatsApp",
       mailSubject: "Hola Manuel, vi tu portafolio",
       stripe: "Inversión diaria real en Meta Ads, 1 de enero a 31 de marzo de 2024",
     },
@@ -39,7 +43,7 @@ export const content = {
     stats: {
       heading: "Lo que ya entregué",
       photoAlt: "Dashboard de Meta Ads con leads, clicks, alcance e ingresos diarios",
-      photoCaption: "Dashboard de Meta Ads, uno de los cinco proyectos del portafolio.",
+      photoCaption: "Dashboard de Meta Ads, uno de los cuatro proyectos del portafolio.",
       a: { figure: "80%", caption: "menos tiempo armando el reporte semanal de Meta Ads." },
       b: { figure: "8+", caption: "clientes con reportes automáticos en Python." },
     },
@@ -98,7 +102,7 @@ export const content = {
     projectsPage: {
       title: "Proyectos",
       intro:
-        "Cinco dashboards construidos con Python, Next.js y Recharts sobre datasets de marketing. Cada uno resuelve una pregunta que un equipo se hace cada semana.",
+        "Cuatro dashboards construidos con Python, Next.js y Recharts sobre datasets de marketing. Cada uno resuelve una pregunta que un equipo se hace cada semana.",
       open: "Abrir el dashboard",
       question: "Pregunta",
       stack: "Hecho con",
@@ -166,6 +170,7 @@ export const content = {
       contact: "contact",
       cv: "CV as PDF",
       write: "Email me",
+      whatsapp: "WhatsApp",
       skip: "Skip to content",
       pause: "Pause the project rotation",
       play: "Resume the project rotation",
@@ -175,6 +180,7 @@ export const content = {
       sentence:
         "I connect Meta Ads, Klaviyo and Shopify to dashboards and weekly reports that build themselves, with Python, Next.js and the Claude API.",
       action: "Send me an email",
+      whatsappAction: "Message me on WhatsApp",
       mailSubject: "Hi Manuel, I saw your portfolio",
       stripe: "Real daily Meta Ads spend, January 1 to March 31, 2024",
     },
@@ -186,7 +192,7 @@ export const content = {
     stats: {
       heading: "What I've shipped",
       photoAlt: "Meta Ads dashboard with leads, clicks, reach and daily revenue",
-      photoCaption: "Meta Ads dashboard, one of the five portfolio projects.",
+      photoCaption: "Meta Ads dashboard, one of the four portfolio projects.",
       a: { figure: "80%", caption: "less time spent building the weekly Meta Ads report." },
       b: { figure: "8+", caption: "clients on automated Python reporting." },
     },
@@ -245,7 +251,7 @@ export const content = {
     projectsPage: {
       title: "Projects",
       intro:
-        "Five dashboards built with Python, Next.js and Recharts on marketing datasets. Each one answers a question a team asks every week.",
+        "Four dashboards built with Python, Next.js and Recharts on marketing datasets. Each one answers a question a team asks every week.",
       open: "Open the dashboard",
       question: "Question",
       stack: "Built with",

@@ -213,55 +213,11 @@ function RealEstate({ locale }: { locale: Locale }) {
   )
 }
 
-const EXAMPLE_ROWS = [
-  ["Prospecting", "Meta", "4200", "312"],
-  ["Retargeting", "Meta", "1850", "198"],
-  ["Search brand", "Google", "980", "143"],
-  ["Lookalike 1%", "Meta", "3100", "221"],
-]
-
-function AiReport({ locale }: { locale: Locale }) {
-  const es = locale === "es"
-  return (
-    <>
-      <Panel title="campañas.csv">
-        <table className="w-full text-[13px]">
-          <thead>
-            <tr className="text-left text-white/50">
-              <th className="pb-1.5 font-normal">campaign</th>
-              <th className="pb-1.5 font-normal">channel</th>
-              <th className="pb-1.5 text-right font-normal">spend</th>
-              <th className="pb-1.5 text-right font-normal">leads</th>
-            </tr>
-          </thead>
-          <tbody>
-            {EXAMPLE_ROWS.map((r) => (
-              <tr key={r[0]} className="border-t border-white/[0.06]">
-                <td className="py-1.5 text-white/80">{r[0]}</td>
-                <td className="py-1.5 text-white/60">{r[1]}</td>
-                <td className="py-1.5 text-right text-white">{r[2]}</td>
-                <td className="py-1.5 text-right text-white">{r[3]}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </Panel>
-      <div className="flex items-center gap-3">
-        <span className="rounded-md px-4 py-2 text-[13px] font-medium text-[#0A0A0A]" style={{ backgroundColor: ACCENT }}>
-          {es ? "Generar informe" : "Generate report"}
-        </span>
-        <span className="text-[13px] text-white/60">{es ? "Claude lee el CSV y escribe el análisis" : "Claude reads the CSV and writes the analysis"}</span>
-      </div>
-    </>
-  )
-}
-
 const BODIES: Record<ProjectSlug, (p: { locale: Locale }) => React.ReactElement> = {
   "meta-ads": MetaAds,
   ecommerce: Ecommerce,
   "email-marketing": Email,
   "real-estate": RealEstate,
-  "ai-report": AiReport,
 }
 
 export function ProjectFragment({ slug, title, locale }: { slug: ProjectSlug; title: string; locale: Locale }) {
